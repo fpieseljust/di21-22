@@ -39,7 +39,7 @@ Una vegada instal·lat ja podem fer:
 ```py
 import PyQt5 
 ```
-\newpage
+
 
 # Primera aplicació amb PyQt5
 
@@ -103,9 +103,9 @@ Modifica el codi de l’anterior activitat per a que es puga passar per línia d
 ```py
 python3 activitat2.2.py "APP" "Text"
 ```
-![activitat2.2](/img/activitat2.2.png "Activitat 2.2")
+![activitat2.2](/resources/img/PyQt5/activitat2.2.png)
 
-\newpage
+
 
 ## Assignant tamany a les finestres i els components
 
@@ -153,7 +153,7 @@ if __name__ == "__main__":
     sys.exit(app.exec_())
 ```
 
-\newpage
+
 
 ## Canviem la interfície
 
@@ -219,7 +219,7 @@ app.exec_()
 2. Observeu com som capaços d’encadenar les coses mitjançant senyals. Una cosa que passa (clic al botó) pot desencadenar que passen altres coses. Aquests efectes posteriors no necessiten saber què els ha causat, sinó que s'executen com a  conseqüència de regles senzilles. Aquest desacoblament dels efectes dels seus desencadenants és un dels conceptes clau que cal entendre en la creació d'aplicacions GUI.
 
 
-\newpage
+
 
 # Components (Qt Widgets)
 
@@ -264,7 +264,7 @@ window.show()
 app.exec_()
 ```
 
-\newpage
+
 
 | Flag            | Comportament                    |
 | --------------- | ------------------------------- |
@@ -291,7 +291,7 @@ Per a combinar tant horitzontalment com verticalment podem utilitzar *Qt.AlignCe
 
 Fes la calculadora, esta vegada de forma gràfica.
 
-\newpage
+
 
 # Layouts (esquemes de disseny)
 
@@ -354,7 +354,7 @@ app.exec_()
 
 El resultat és el següent:
 
-![exemple_layout_vertical](img/exemple_layout_vertical.png "Exemple layout vertical")
+![exemple_layout_vertical](/resources/img/PyQt5/exemple_layout_vertical.png)
 
 ## Nesting layouts (niament)
 
@@ -412,7 +412,7 @@ window.show()
 app.exec_()
 ~~~
 
-![exemple_niuament_layouts](img/exemple_niuament_layouts.png "Exemple niuament de layouts")
+![exemple_niuament_layouts](/resources/img/PyQt5/exemple_niuament_layouts.png)
 
 ### Activitat 2.4
 
@@ -423,7 +423,7 @@ Situa tots els components sobre els layouts, de forma que no caldrà indicar-li 
 
 Crea una interfície com la següent:
 
-![exemple_stacked_layout](img/exemple_stacked_layout.png "Exemple de layouts apilats")
+![exemple_stacked_layout](/resources/img/PyQt5/exemple_stacked_layout.png)
 
 Al pulsar sobre els botons, els fons canviarà al color corresponent. Utilitzeu la classe Color que està al moodle.
 
