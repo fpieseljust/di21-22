@@ -6,45 +6,66 @@ layout: page
 permalink: /PyQt5/
 ---
 
-# Qt i PyQt5
+# Qt i PySide
 
-La biblioteca PyQt5 és simplement un *wrapper* a la biblioteca C++ Qt, per permetre que es puga utilitzar des de Python.
+**PySide** és la unió de Python amb el conjunt d'eines per a desenvolupament d'interfícies gràfiques d'usuari multiplataforma Qt, desenvolupat per *The Qt Company*, com a part del projecte [*Qt for Python*](https://doc.qt.io/qtforpython/). És una de les alternatives al paquet de biblioteca estàndard Tkinter. Igual que Qt, PySide és programari lliure. PySide és compatible amb Linux/X11, macOS i Microsoft Windows.
 
-Com que es tracta d'una interfície Python per a una biblioteca C++, les convencions de noms que s’utilitzen a PyQt5 no compleixen els estàndards PEP8. Les funcions i les variables es nomenen utilitzant *mixedCase* en lloc de *snake_case*. **En els nostres desenvolupaments deuriem utilitzar els estàndars definits per Python**.
+Tot i que hi ha documentació específica de PySide disponible, també podem **utilitzar la documentació de Qt**, tenint en compte que s'haurà de traduir la sintaxi d'objectes i mètodes per adaptar-ho a Python.
 
-Per últim, tot i que hi ha documentació específica de PyQt5 disponible, serà més util **utilitzar la documentació de Qt**, ja que és més completa. S’haurà de traduir la sintaxi d'objectes i mètodes per adaptar-ho a Python.
+## Versions de PySide
 
-## Instal·lació de PyQt5
+Hi ha hagut tres versions principals de PySide:
 
-### Windows i macOS
+- PySide és compatible amb Qt 4
+- PySide2 és compatible amb Qt 5
+- PySide6 és compatible amb Qt 6
 
-Per a instal·lar PyQt5 ho podem fer a través de l’instal·lador de paquets de Python, ja que està disponible a PyPi.
+La versió 1 de PySide va ser llançada l'agost de 2009 baix llicència LGPL per Nokia, aleshores propietaria de Qt, després de no arribar a un acord amb els desenvolupadors de PyQt, Riverbank Computing, per canviar els seus termes de llicència per incloure LGPL com a llicència alternativa. Va donar suport a Qt 4 sota els sistemes operatius Linux/X11, Mac OS X, Microsoft Windows, Maemo i MeeGo, mentre que la comunitat PySide va afegir suport per a Android.
+
+Christian Tismer va iniciar PySide2 per portar PySide de Qt 4 a Qt 5 el 2015. Aleshores, el projecte es va incorporar al projecte Qt.Va ser llançat el desembre de 2018.
+
+PySide6 es va llançar el desembre de 2020. Va afegir suport per a Qt 6 i va eliminar el suport per a totes les versions de Python anteriors a la 3.6.
+
+El projecte va començar utilitzant Boost.Python de les biblioteques de Boost C++ per a enllaçar el codi Python amb les crides C++, llenguatge sobre el que està contruït Qt. Més tard va crear el seu propi generador d'enllaç anomenat Shiboken, per reduir la mida dels executables i l'ús de memòria.
+
+Nosaltres farem ús de PySide6 durant el present curs.
+
+## Instal·lació de PySide6
+
+Sempre que desenvolupem, hauriem de fer-ho en un entorn virtual. Recordeu que per crear-lo i activar-lo, utilitzem:
 
 ```py
-pip3 install pyqt5
+python3 -m venv .venv
+source .venv/bin/activate #Per a Linux i macOS
+
+env\Scripts\activate.bat #Per a Windows
 ```
 
-En cas de tindre disponible el Homebrew en macOS, podem instal·lar fent:
+Per a instal·lar PySide6 utilitzem **pip**:
 
-```py
-brew install pyqt5 
-```
-
-### Debian i derivats
-```py
-apt install python3-pyqt5
-```
-Una vegada instal·lat ja podem fer:
-
-```py
-import PyQt5 
+```bash
+pip install pyside6
 ```
 
 
-# Primera aplicació amb PyQt5
+## Comprovem la Instal·lació
+
+Una vegada instal·lat i amb l'entorn virtual activat, podem executar el següent codi per comprovar que tot funciona.
 
 ```py
-from PyQt5.QtWidgets import QApplication, QWidget
+import PySide6.QtCore
+
+# Prints PySide6 version
+print(PySide6.__version__)
+
+# Prints the Qt version used to compile PySide6
+print(PySide6.QtCore.__version__)
+```
+
+# Primera aplicació amb PySide6
+
+```py
+from PySide6.QtWidgets import QApplication, QWidget
 # Sols si necessitem arguments importem sys
 import sys
 
@@ -61,6 +82,12 @@ window.show() # IMPORTANT!!!!! Les finestres estan ocultes per defecte.
 app.exec_()
 #exec és una paraula reservada en Python 2.7, per això afegim _
 ```
+
+> Si rebeu l'error *libOpenGL.so.0: cannot open shared object file: No such file or directory*, heu d'instal·lar la llibreria *libopengl0*.
+> 
+>  `sudo apt install libopengl0 -y`
+
+
 
 ## Què és una finestra?
 
