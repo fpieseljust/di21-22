@@ -23,7 +23,7 @@ email: ferrancunyat@ieseljust.com
 description: >- # this means to ignore newlines until "baseurl:"
   Benvinguts a la web del Mòdul Desenvolupament d'interfícies de 2n de DAM. IES Jaume II "El Just" - Tavernes de la Valldigna  
 baseurl: "/di21-22" # the subpath of your site, e.g. /blog
-url: "https://fpieseljust.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://fpieseljust.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ferrancunyatElJust
 
 # Build settings
