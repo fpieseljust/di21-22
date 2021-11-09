@@ -95,7 +95,7 @@ Anem a crear la nostra primera aplicació.
 4. Afig el botó a la part central de la finestra amb setCentralWidget(«component»).
 5. Recorda mostrar la finestra i iniciar el bucle d’esdeveniments.
 
-![activitat2.1](img/activitat2.1.png "Activitat 2.1")
+![activitat2.1](/resources/img/PyQt5/activitat2.1.png)
 
 #### Activitat 2.2
 Modifica el codi de l’anterior activitat per a que es puga passar per línia de comandaments el títol i el text del botó.
@@ -103,7 +103,7 @@ Modifica el codi de l’anterior activitat per a que es puga passar per línia d
 ```py
 python3 activitat2.2.py "APP" "Text"
 ```
-![activitat2.2](img/activitat2.2.png "Activitat 2.2")
+![activitat2.2](/img/activitat2.2.png "Activitat 2.2")
 
 \newpage
 
