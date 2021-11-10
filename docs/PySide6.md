@@ -94,7 +94,7 @@ if __name__ == "__main__":
 > 
 >  `sudo apt install libopengl0 -y`
 
-Baixeu el codi [d'ací](/resources/code/hello.py)
+Baixeu el codi [d'ací](resources/code/hello.py)
 
 ## Què és una finestra?
 
