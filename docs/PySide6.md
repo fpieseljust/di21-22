@@ -1,10 +1,24 @@
 ---
-title: Programació de GUI amb PySide6
+title: GUI amb PySide6
 author: Ferran Cunyat
 lang: ca-ES
 layout: page
 permalink: /PySide6/
 ---
+
+- [Qt i PySide](#qt-i-pyside)
+  - [Versions de PySide](#versions-de-pyside)
+  - [Instal·lació de PySide6](#installació-de-pyside6)
+  - [Comprovem la Instal·lació](#comprovem-la-installació)
+- [Primera aplicació amb PySide6 - *Hola món!*](#primera-aplicació-amb-pyside6---hola-món)
+  - [Hola món! amb PySide6](#hola-món-amb-pyside6)
+  - [Què és una finestra?](#què-és-una-finestra)
+  - [Què és el bucle d’esdeveniments (event loop)?](#què-és-el-bucle-desdeveniments-event-loop)
+  - [QMainWindow](#qmainwindow)
+    - [Activitat 1](#activitat-1)
+    - [Activitat 2](#activitat-2)
+  - [Assignant tamany a les finestres i els components](#assignant-tamany-a-les-finestres-i-els-components)
+    - [Activitat 3](#activitat-3)
 
 # Qt i PySide
 
@@ -176,6 +190,8 @@ window = MainWindow()
 app.exec()
 
 ```
+
+
 
 ### Activitat 3
 
