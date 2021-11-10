@@ -1,9 +1,9 @@
 ---
-title: Introducció a la programació amb Python
+title: Programació de GUI amb PySide6
 author: Ferran Cunyat
 lang: ca-ES
 layout: page
-permalink: /PyQt5/
+permalink: /PySide6/
 ---
 
 # Qt i PySide
@@ -62,32 +62,39 @@ print(PySide6.__version__)
 print(PySide6.QtCore.__version__)
 ```
 
-# Primera aplicació amb PySide6
+# Primera aplicació amb PySide6 - *Hola món!*
+
+## Hola món! amb PySide6
 
 ```py
-from PySide6.QtWidgets import QApplication, QWidget
+from PySide6 import QtWidgets, QtCore
+
 # Sols si necessitem arguments importem sys
 import sys
 
-# Necessitem una instància (i sols una) de QApplication per cada aplicació.
-# Li passem sys.argv per a permetre arguments des de la línia de comandaments
-# Si no anem a passar arguments podem utilitzar QApplication([])
-app = QApplication(sys.argv)
 
-# Creem un QtWidget, que serà la nostra finestra .
-window = QWidget()
-window.show() # IMPORTANT!!!!! Les finestres estan ocultes per defecte.
+if __name__ == "__main__":
+    # Necessitem una instància (i sols una) de QApplication per cada aplicació.
+    # Li passem sys.argv per a permetre arguments des de la línia de comandaments
+    # Si no anem a passar arguments podem utilitzar QApplication([])
+    app = QtWidgets.QApplication(sys.argv)
 
-# Iniciem el bucle d’esdeveniments.
-app.exec_()
-#exec és una paraula reservada en Python 2.7, per això afegim _
+    # Creem un QLabel amb el text Hola món! i aliniament al centre.
+    label = QtWidgets.QLabel("Hola món!", alignment=QtCore.Qt.AlignCenter)
+    # Redimensionem el QLabel
+    label.resize(800, 600)
+    #Fem visible el label IMPORTANT!!!!! Els components estan ocults per defecte.
+    label.show()
+
+    # Iniciem el bucle d’esdeveniments.
+    sys.exit(app.exec())
 ```
 
 > Si rebeu l'error *libOpenGL.so.0: cannot open shared object file: No such file or directory*, heu d'instal·lar la llibreria *libopengl0*.
 > 
 >  `sudo apt install libopengl0 -y`
 
-
+Baixeu el codi [d'ací](/resources/code/hello.py)
 
 ## Què és una finestra?
 
@@ -113,18 +120,18 @@ Només hi ha un bucle d'esdeveniments per aplicació.
 ## QMainWindow
 Es tracta d’un component pre-definit que proporciona moltes funcions estàndard de les finestres que fareu servir les vostres aplicacions, com poden ser les barres d'eines, els menús, la barra d'estat, els components que es poden acoblar, etc. Veurem aquestes funcions avançades més endavant, però de moment anem a fer ús d’ella a la nostra aplicació.
 
-#### Activitat 2.1
+### Activitat 1
 Anem a crear la nostra primera aplicació.
 
 1. Has de definir una classe MainWindow, que herede de QmainWindow.
 2. Amb el mètode setWindowTitle() posa-li títol a l’aplicació «La meua aplicació». 
-3. Amb QpushButton(), crea un botó amb el text, «Aceptar».
+3. Amb QPushButton(), crea un botó amb el text, «Aceptar».
 4. Afig el botó a la part central de la finestra amb setCentralWidget(«component»).
 5. Recorda mostrar la finestra i iniciar el bucle d’esdeveniments.
 
 ![activitat2.1](/resources/img/PyQt5/activitat2.1.png)
 
-#### Activitat 2.2
+#### Activitat 2
 Modifica el codi de l’anterior activitat per a que es puga passar per línia de comandaments el títol i el text del botó.
 
 ```py
