@@ -6,19 +6,24 @@ layout: page
 permalink: /PySide6/
 ---
 
+![Logo Python + Qt](resources/img/PySide6/1200px-Python_and_Qt.svg.png)
+
 - [Qt i PySide](#qt-i-pyside)
   - [Versions de PySide](#versions-de-pyside)
   - [Instal·lació de PySide6](#installació-de-pyside6)
   - [Comprovem la Instal·lació](#comprovem-la-installació)
 - [Primera aplicació amb PySide6 - *Hola món!*](#primera-aplicació-amb-pyside6---hola-món)
-  - [Hola món! amb PySide6](#hola-món-amb-pyside6)
+  - [Exemple: Hola món! amb PySide6](#exemple-hola-món-amb-pyside6)
   - [Què és una finestra?](#què-és-una-finestra)
   - [Què és el bucle d’esdeveniments (event loop)?](#què-és-el-bucle-desdeveniments-event-loop)
   - [QMainWindow](#qmainwindow)
     - [Activitat 1](#activitat-1)
     - [Activitat 2](#activitat-2)
   - [Assignant tamany a les finestres i els components](#assignant-tamany-a-les-finestres-i-els-components)
-    - [Activitat 3](#activitat-3)
+    - [Activitat 3 (entregable)](#activitat-3-entregable)
+- [Senyals i ranures (signal & slots)](#senyals-i-ranures-signal--slots)
+  - [Exemple: Signals-Slots 1](#exemple-signals-slots-1)
+    - [Activitat 4 (entregable)](#activitat-4-entregable)
 
 # Qt i PySide
 
@@ -78,7 +83,7 @@ print(PySide6.QtCore.__version__)
 
 # Primera aplicació amb PySide6 - *Hola món!*
 
-## Hola món! amb PySide6
+## Exemple: Hola món! amb PySide6
 
 ```py
 from PySide6 import QtWidgets, QtCore
@@ -143,7 +148,7 @@ Anem a crear la nostra primera aplicació.
 4. Afig el botó a la part central de la finestra amb setCentralWidget(«component»).
 5. Recorda mostrar la finestra i iniciar el bucle d’esdeveniments.
 
-![activitat2.1](/resources/img/PyQt5/activitat2.1.png)
+![activitat1](resources/img/PySide6/activitat1.png)
 
 ### Activitat 2
 Modifica el codi de l’anterior activitat per a que es puga passar per línia de comandaments el títol i el text del botó.
@@ -151,9 +156,7 @@ Modifica el codi de l’anterior activitat per a que es puga passar per línia d
 ```py
 python3 activitat2.2.py "APP" "Text"
 ```
-![activitat2.2](/resources/img/PyQt5/activitat2.2.png)
-
-
+![activitat2](resources/img/PySide6/activitat2.2.png)
 
 ## Assignant tamany a les finestres i els components
 
@@ -190,10 +193,9 @@ window = MainWindow()
 app.exec()
 
 ```
+Baixa el codi punxant el següent [enllaç](resources/code/main_window.py)
 
-
-
-### Activitat 3
+### Activitat 3 (entregable)
 
 Basant-nos en el codi de l'activitat 2, anem a fer una gestió més pràctica i real dels paràmetres d'entrada de l'script. Este és l'aspecte que tindrà l'ajuda de l'execució de l'script. 
 
@@ -212,3 +214,64 @@ optional arguments:
 ```
 
 Per a fer tota aquesta gestió, busca una llibreria de python que t'ajude.
+
+# Senyals i ranures (signal & slots)
+
+En l’anterior aplicació hem inclòs un botó, però que no executa ninguna acció al fer clic sobre ell. Necessitem connectar les accions a alguna funcionalitat. En Qt, açò s’aconseguix gràcies a les senyals i les ranures.
+
+Una **senyal** és una notificació emesa pels components quan es produeix un esdeveniment. 
+
+Una **ranura** és el nom que Qt dona als rebedors de senyals. En Python, qualsevol funció pot ser una ranura, simplement connectant-li una senyal. 
+
+## Exemple: Signals-Slots 1
+
+```py
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
+from PySide6.QtCore import QSize
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+
+        self.setFixedSize(QSize(300, 300))
+        self.setWindowTitle("Exemple signals-slots 1")
+
+        pybutton = QPushButton('Clic', self)
+        
+        #Connectem la senyal clicked a la ranura button_pressed
+        pybutton.clicked.connect(self.button_pressed) 
+
+        pybutton.resize(100, 100)
+        pybutton.move(100, 100)
+
+    def button_pressed(self):
+        '''
+            S'executaà al rebre la notificació de que s'ha apretat el botó:
+            - Observeu que la consola imprimirà "Clic rebut!" al fer clic al botó
+        '''
+        print('Clic rebut!')
+
+if __name__ == "__main__":
+    app = QApplication([])
+    mainWin = MainWindow()
+    mainWin.show()
+    app.exec()
+```
+
+> En l'anterior codi, a més de connectar la senyal a l'slot, hem utilitzat les funcions resize i move per a assignar el tamany i situar un component.  
+> Consulta la documentació per obtindre [més informació sobre les senyals de QPushButton](https://doc.qt.io/qt-6/qpushbutton.html).
+
+### Activitat 4 (entregable)
+
+Fes una aplicació amb tres botons. Inicialment, l'aplicació ocuparà el tamany normalitzat i els botons estaran centrats, tant verticalment com horitzontalment en tot moment:
+- Inicialment l'aplicació es mostrarà centrada sobre la pantalla amb el tamany normalitzat.
+- Al fer clic al botó de l'esquerra *Maximitza*, l'aplicació passarà a ocupar el tamany màxim definit.
+- Al fer clic al botó de la dreta *Minimitza*, l'aplicació passarà a ocupar el tamany mínim definit.
+- Al fer clic al botó central *Normalitza*, l'aplicació passarà a ocupar de nou el tamany normalitzat.
+- En cada cas, els botons es deshabilitzaran segons corresponga. És a dir, en tamany normalitzat, el botó corresponent a normalitzar el tamany estarà deshabilitat i la restat habilitats. Per a la resta de tamanys, aplicarem el mateix criteri.
+- El tamanys normal, màxim i mínim de finestra, així com els tamanys de botó estaran definits a un arxiu config.py
+- El tamany mínim mai podrà ser inferior a la suma dels tamanys de botó.
+
+![normal](resources/img/PySide6/a3-normal.png)
+
+![min](resources/img/PySide6/a3-min.png)
