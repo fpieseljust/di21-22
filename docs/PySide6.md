@@ -271,6 +271,7 @@ Fes una aplicació amb tres botons. Inicialment, l'aplicació ocuparà el tamany
 - En cada cas, els botons es deshabilitzaran segons corresponga. És a dir, en tamany normalitzat, el botó corresponent a normalitzar el tamany estarà deshabilitat i la restat habilitats. Per a la resta de tamanys, aplicarem el mateix criteri.
 - El tamanys normal, màxim i mínim de finestra, així com els tamanys de botó estaran definits a un arxiu config.py
 - El tamany mínim mai podrà ser inferior a la suma dels tamanys de botó.
+- El *title* de l'aplicació mostrarà en cada moment en quin estat es troba *Normalitzat, Maximitzat o Minimitzat* 
 
 ![normal](resources/img/PySide6/a3-normal.png)
 
