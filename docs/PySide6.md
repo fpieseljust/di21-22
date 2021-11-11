@@ -16,22 +16,22 @@ permalink: /PySide6/
   - [Exemple: Hola món! amb PySide6](#exemple-hola-món-amb-pyside6)
   - [Què és una finestra?](#què-és-una-finestra)
   - [Què és el bucle d’esdeveniments (event loop)?](#què-és-el-bucle-desdeveniments-event-loop)
-  - [QMainWindow](#qmainwindow)
+- [QMainWindow](#qmainwindow)
     - [Activitat 1](#activitat-1)
     - [Activitat 2](#activitat-2)
-  - [Assignant tamany a les finestres i els components](#assignant-tamany-a-les-finestres-i-els-components)
+- [Assignem tamany a les finestres i els components](#assignem-tamany-a-les-finestres-i-els-components)
     - [Activitat 3 (entregable)](#activitat-3-entregable)
 - [Senyals i ranures (signal & slots)](#senyals-i-ranures-signal--slots)
   - [Exemple: Signals-Slots 1](#exemple-signals-slots-1)
     - [Activitat 4 (entregable)](#activitat-4-entregable)
 
-# Qt i PySide
+## Qt i PySide
 
 **PySide** és la unió de Python amb el conjunt d'eines per a desenvolupament d'interfícies gràfiques d'usuari multiplataforma Qt, desenvolupat per *The Qt Company*, com a part del projecte [*Qt for Python*](https://doc.qt.io/qtforpython/). És una de les alternatives al paquet de biblioteca estàndard Tkinter. Igual que Qt, PySide és programari lliure. PySide és compatible amb Linux/X11, macOS i Microsoft Windows.
 
 Tot i que hi ha documentació específica de PySide disponible, també podem **utilitzar la documentació de Qt**, tenint en compte que s'haurà de traduir la sintaxi d'objectes i mètodes per adaptar-ho a Python.
 
-## Versions de PySide
+### Versions de PySide
 
 Hi ha hagut tres versions principals de PySide:
 
@@ -49,7 +49,7 @@ El projecte va començar utilitzant Boost.Python de les biblioteques de Boost C+
 
 Nosaltres farem ús de PySide6 durant el present curs.
 
-## Instal·lació de PySide6
+### Instal·lació de PySide6
 
 Sempre que desenvolupem, hauriem de fer-ho en un entorn virtual. Recordeu que per crear-lo i activar-lo, utilitzem:
 
@@ -67,7 +67,7 @@ pip install pyside6
 ```
 
 
-## Comprovem la Instal·lació
+### Comprovem la Instal·lació
 
 Una vegada instal·lat i amb l'entorn virtual activat, podem executar el següent codi per comprovar que tot funciona.
 
@@ -81,9 +81,9 @@ print(PySide6.__version__)
 print(PySide6.QtCore.__version__)
 ```
 
-# Primera aplicació amb PySide6 - *Hola món!*
+## Primera aplicació amb PySide6 - *Hola món!*
 
-## Exemple: Hola món! amb PySide6
+### Exemple: Hola món! amb PySide6
 
 ```py
 from PySide6 import QtWidgets, QtCore
@@ -115,14 +115,14 @@ if __name__ == "__main__":
 
 Baixeu el codi [d'ací](resources/code/hello.py)
 
-## Què és una finestra?
+### Què és una finestra?
 
 - Conté la interfície de l’usuari
 - Cada aplicació en necessita almenys una, però en pot tindre més
 - L’aplicació, per defecte, acabarà en tancar l’última d’elles
 
 
-## Què és el bucle d’esdeveniments (event loop)?
+### Què és el bucle d’esdeveniments (event loop)?
 
 Ja hem vist que cada aplicació necessita un i sols un objecte QApplication. 
 
@@ -139,7 +139,7 @@ Només hi ha un bucle d'esdeveniments per aplicació.
 ## QMainWindow
 Es tracta d’un component pre-definit que proporciona moltes funcions estàndard de les finestres que fareu servir les vostres aplicacions, com poden ser les barres d'eines, els menús, la barra d'estat, els components que es poden acoblar, etc. Veurem aquestes funcions avançades més endavant, però de moment anem a fer ús d’ella a la nostra aplicació.
 
-### Activitat 1
+#### Activitat 1
 Anem a crear la nostra primera aplicació.
 
 1. Has de definir una classe MainWindow, que herede de QmainWindow.
@@ -150,7 +150,7 @@ Anem a crear la nostra primera aplicació.
 
 ![activitat1](resources/img/PySide6/activitat1.png)
 
-### Activitat 2
+#### Activitat 2
 Modifica el codi de l’anterior activitat per a que es puga passar per línia de comandaments el títol i el text del botó.
 
 ```py
@@ -158,7 +158,7 @@ python3 activitat2.2.py "APP" "Text"
 ```
 ![activitat2](resources/img/PySide6/activitat2.2.png)
 
-## Assignant tamany a les finestres i els components
+## Assignem tamany a les finestres i els components
 
 Amb la funcions **.setFixedSize(amplada, altura)** assignem una mida fixa al component sobre el que l’apliquem. 
 
@@ -195,7 +195,7 @@ app.exec()
 ```
 Baixa el codi punxant el següent [enllaç](resources/code/main_window.py)
 
-### Activitat 3 (entregable)
+#### Activitat 3 (entregable)
 
 Basant-nos en el codi de l'activitat 2, anem a fer una gestió més pràctica i real dels paràmetres d'entrada de l'script. Este és l'aspecte que tindrà l'ajuda de l'execució de l'script. 
 
@@ -215,7 +215,7 @@ optional arguments:
 
 Per a fer tota aquesta gestió, busca una llibreria de python que t'ajude.
 
-# Senyals i ranures (signal & slots)
+## Senyals i ranures (signal & slots)
 
 En l’anterior aplicació hem inclòs un botó, però que no executa ninguna acció al fer clic sobre ell. Necessitem connectar les accions a alguna funcionalitat. En Qt, açò s’aconseguix gràcies a les senyals i les ranures.
 
@@ -223,7 +223,7 @@ Una **senyal** és una notificació emesa pels components quan es produeix un es
 
 Una **ranura** és el nom que Qt dona als rebedors de senyals. En Python, qualsevol funció pot ser una ranura, simplement connectant-li una senyal. 
 
-## Exemple: Signals-Slots 1
+### Exemple: Signals-Slots 1
 
 ```py
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
@@ -261,7 +261,7 @@ if __name__ == "__main__":
 > En l'anterior codi, a més de connectar la senyal a l'slot, hem utilitzat les funcions resize i move per a assignar el tamany i situar un component.  
 > Consulta la documentació per obtindre [més informació sobre les senyals de QPushButton](https://doc.qt.io/qt-6/qpushbutton.html).
 
-### Activitat 4 (entregable)
+#### Activitat 4 (entregable)
 
 Fes una aplicació amb tres botons. Inicialment, l'aplicació ocuparà el tamany normalitzat i els botons estaran centrats, tant verticalment com horitzontalment en tot moment:
 - Inicialment l'aplicació es mostrarà centrada sobre la pantalla amb el tamany normalitzat.
