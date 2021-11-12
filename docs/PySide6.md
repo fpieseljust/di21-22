@@ -156,7 +156,7 @@ Modifica el codi de l’anterior activitat per a que es puga passar per línia d
 ```py
 python3 activitat2.2.py "APP" "Text"
 ```
-![activitat2](resources/img/PySide6/activitat2.2.png)
+![activitat2](resources/img/PySide6/activitat2.png)
 
 ## Assignem tamany a les finestres i els components
 
@@ -257,6 +257,8 @@ if __name__ == "__main__":
     mainWin.show()
     app.exec()
 ```
+
+Pots baixar el codi [ací](resources/code/signals_slots1.py)
 
 > En l'anterior codi, a més de connectar la senyal a l'slot, hem utilitzat les funcions resize i move per a assignar el tamany i situar un component.  
 > Consulta la documentació per obtindre [més informació sobre les senyals de QPushButton](https://doc.qt.io/qt-6/qpushbutton.html).
