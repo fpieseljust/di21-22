@@ -24,6 +24,7 @@ permalink: /PySide6/
 - [Senyals i ranures (signal & slots)](#senyals-i-ranures-signal--slots)
   - [Exemple: Signals-Slots 1](#exemple-signals-slots-1)
     - [Activitat 4 (entregable)](#activitat-4-entregable)
+  - [Senyals i ranures: ampliem els coneiximents](#senyals-i-ranures-ampliem-els-coneiximents)
 
 ## Qt i PySide
 
@@ -278,3 +279,8 @@ Fes una aplicació amb tres botons. Inicialment, l'aplicació ocuparà el tamany
 ![normal](resources/img/PySide6/a3-normal.png)
 
 ![min](resources/img/PySide6/a3-min.png)
+
+### Senyals i ranures: ampliem els coneiximents
+
+Una de les coses que heu de tindre en compte, és que un únic esdeveniments pot desencadenar l'emissió de diverses senyals. Fixa't en l'exemple següent:
+
