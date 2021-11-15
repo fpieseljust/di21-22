@@ -25,9 +25,11 @@ permalink: /PySide6/
   - [Exemple: Signals-Slots 1](#exemple-signals-slots-1)
     - [Activitat 4 (entregable)](#activitat-4-entregable)
   - [Encadenaments de senyals](#encadenaments-de-senyals)
+  - [Connectem components entre si](#connectem-components-entre-si)
   - [Senyals definits per l'usuari](#senyals-definits-per-lusuari)
   - [Modifiquem la informació emesa pels senyals](#modifiquem-la-informació-emesa-pels-senyals)
     - [Activitat 5](#activitat-5)
+- [Esdeveniments](#esdeveniments)
 
 ## Qt i PySide
 
@@ -334,6 +336,43 @@ Treballant amb senyals i ranures hem de tindre en compte:
 - Les ranures poden rebre arguments -> La ranura *the_window_title_changed* rep *window_title* com a argument.
 - Un únic esdeveniments pot desencadenar l'emissió de diverses senyals connectades entre elles a través d'una ranura -> Al fer clic es llança l'execució de *the_button_was_clicked*, que a la vegada desencadena l'esdeveniment *windowTitleChanged*.
 
+### Connectem components entre si
+
+No sempre necessitem definir una funció per gestionar un esdeveniment, podem connectar components entre si per fer-ho:
+
+```py
+import sys
+from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QVBoxLayout, QWidget
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("My App")
+
+        container = QWidget()
+        container.setFixedSize(240,100)
+
+        self.label = QLabel(container)
+        self.label.setFixedSize(200,20)
+        self.label.move(20, 20)
+
+        self.input = QLineEdit(container)
+        self.input.setFixedSize(200,20)
+        self.input.move(20, 60)
+        self.input.textChanged.connect(self.label.setText)
+
+        self.setCentralWidget(container)
+
+app = QApplication(sys.argv)
+
+window = MainWindow()
+window.show()
+
+app.exec()
+```
+
 ### Senyals definits per l'usuari
 
 Fins ara hem utilitzat els senyals predefinits pels components Qt. Definirem ara els nostres propis senyals. Això ens ajudarà a desacoblar (independitzar, fer que no depenguen unes de altres) les diferents part del programa. A més, ens permetrà fer la nostra aplicació *responsiva*, en compte de tindre un gran mètode *update*, podem partir el treball entre múltiples ranures i llançar-les amb una sola senyal.
@@ -413,6 +452,69 @@ window.show()
 app.exec()
 ```
 
+Pots baixar el codi [ací](resources/code/PySide6/signals_slots3.py)
+
 #### Activitat 5
 
 Fes una aplicació que tinga un botó. Al fer clic sobre ell, imprimirà si el botó està seleccionat o no i un número aleatori entre 0 i 10.
+
+## Esdeveniments
+
+Cada interacció que l'usuari té amb una aplicació Qt és un esdeveniment. Hi ha molts tipus d'esdeveniments. Cada esdeveniment és un objecte que empaqueta informació sobre la interacció que l'ha produït. Els esdeveniments es passen a controladors d'esdeveniments (*event handler*) específics del component on s'ha produït la interacció.
+
+Podem definir gestors d'esdeveniments personalitzats, modificant la manera com els vostres components responen a aquests esdeveniments. Els controladors d'esdeveniments es defineixen com qualsevol altre mètode, però el nom és específic per al tipus d'esdeveniment que gestionen.
+
+Un dels principals esdeveniments que reben els components és el QMouseEvent. Els esdeveniments QMouseEvent es produixen en moure i clicar el ratolí sobre un component. Els següents gestors d'esdeveniments estan disponibles per gestionar els esdeveniments del ratolí:
+
+| Gestor d'esdeveniment |  Tipus d'esdeveniment  |
+| :-------------------: | :--------------------: |
+|    mouseMoveEvent     |   Moviment de ratolí   |
+|    mousePressEvent    | Botó del ratolí premut |
+|   mouseReleaseEvent   | Botó de ratolí soltat  |
+| mouseDoubleClickEvent |  Doble clic detectat   |
+
+Per exemple, fer clic en un component provocarà que s'envie un QMouseEvent al gestor d'esdeveniments *.mousePressEvent* del component. Aquest controlador pot utilitzar l'objecte d'esdeveniment per recollir informació sobre què ha passat, com ara què va desencadenar l'esdeveniment i on concretament es va produir.
+
+Podeu interceptar esdeveniments heretant i anul·lant el mètode del controlador a la classe derivada. Podeu triar filtrar, modificar o ignorar esdeveniments, passant-los al controlador normal de l'esdeveniment cridant a la funció de classe pare amb mètode super(). 
+
+Veiem açò amb una finestra principal. 
+
+> En cada cas, *e* rebrà l'esdeveniment produït.
+
+```py
+import sys
+
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QLabel, QMainWindow, QTextEdit
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.label = QLabel("Click in this window")
+        self.setCentralWidget(self.label)
+
+    def mouseMoveEvent(self, e):
+        self.label.setText("mouseMoveEvent")
+
+    def mousePressEvent(self, e):
+        self.label.setText("mousePressEvent")
+
+    def mouseReleaseEvent(self, e):
+        self.label.setText("mouseReleaseEvent")
+
+    def mouseDoubleClickEvent(self, e):
+        self.label.setText("mouseDoubleClickEvent")
+
+
+app = QApplication(sys.argv)
+
+window = MainWindow()
+window.show()
+
+app.exec()
+```
+
+> Observeu que els esdeveniments de moviment del ratolí només es registren quan teniu el botó premut. Podeu canviar-ho cridant a `self.setMouseTracking(True)` de la finestra.  
+> També podeu notar que els esdeveniments de clic i de doble clic es desencadenen quan es prem el botó. Només l'esdeveniment de soltar es dispara quan es deixa de prémer.
+
