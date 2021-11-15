@@ -24,7 +24,10 @@ permalink: /PySide6/
 - [Senyals i ranures (signal & slots)](#senyals-i-ranures-signal--slots)
   - [Exemple: Signals-Slots 1](#exemple-signals-slots-1)
     - [Activitat 4 (entregable)](#activitat-4-entregable)
-  - [Senyals i ranures: ampliem els coneiximents](#senyals-i-ranures-ampliem-els-coneiximents)
+  - [Encadenaments de senyals](#encadenaments-de-senyals)
+  - [Senyals definits per l'usuari](#senyals-definits-per-lusuari)
+  - [Modifiquem la informació emesa pels senyals](#modifiquem-la-informació-emesa-pels-senyals)
+    - [Activitat 5](#activitat-5)
 
 ## Qt i PySide
 
@@ -114,7 +117,7 @@ if __name__ == "__main__":
 > 
 >  `sudo apt install libopengl0 -y`
 
-Baixeu el codi [d'ací](resources/code/hello.py)
+Baixeu el codi [d'ací](resources/code/PySide6/hello.py)
 
 ### Què és una finestra?
 
@@ -194,7 +197,7 @@ window = MainWindow()
 app.exec()
 
 ```
-Baixa el codi punxant el següent [enllaç](resources/code/main_window.py)
+Baixa el codi punxant el següent [enllaç](resources/code/PySide6/main_window.py)
 
 #### Activitat 3 (entregable)
 
@@ -259,7 +262,7 @@ if __name__ == "__main__":
     app.exec()
 ```
 
-Pots baixar el codi [ací](resources/code/signals_slots1.py)
+Pots baixar el codi [ací](resources/code/PySide6/signals_slots1.py)
 
 > En l'anterior codi, a més de connectar la senyal a l'slot, hem utilitzat les funcions resize i move per a assignar el tamany i situar un component.  
 > Consulta la documentació per obtindre [més informació sobre les senyals de QPushButton](https://doc.qt.io/qt-6/qpushbutton.html).
@@ -280,7 +283,136 @@ Fes una aplicació amb tres botons. Inicialment, l'aplicació ocuparà el tamany
 
 ![min](resources/img/PySide6/a3-min.png)
 
-### Senyals i ranures: ampliem els coneiximents
+### Encadenaments de senyals
 
-Una de les coses que heu de tindre en compte, és que un únic esdeveniments pot desencadenar l'emissió de diverses senyals. Fixa't en l'exemple següent:
+Fixa't en l'exemple següent:
 
+```py
+import sys
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("My App")
+
+        button = QPushButton("Press Me!")
+        button.setCheckable(True)
+        button.clicked.connect(self.the_button_was_clicked)
+        button.clicked.connect(self.the_button_was_toggled)
+
+        self.windowTitleChanged.connect(self.the_window_title_changed)
+
+        # Set the central widget of the Window.
+        self.setCentralWidget(button)
+
+    def the_button_was_clicked(self):
+        if self.windowTitle() == "La meua aplicació":
+            self.setWindowTitle("My App")
+        else:
+            self.setWindowTitle("La meua aplicació")
+
+    def the_button_was_toggled(self):
+        print("Clic rebut!")
+
+    def the_window_title_changed(self, window_title):
+        print("Window title changed: %s" % window_title)
+ 
+
+app = QApplication(sys.argv)
+window = MainWindow()
+window.show()
+app.exec()
+```
+
+Pots baixar el codi [ací](resources/code/PySide6/signals_slots2.py)
+
+Treballant amb senyals i ranures hem de tindre en compte:
+- Un únic senyal pot estar connectat a diverses ranures -> Clic desencadena l'execució de *the_button_was_toggled* i *the_button_was_clicked*.
+- Les ranures poden rebre arguments -> La ranura *the_window_title_changed* rep *window_title* com a argument.
+- Un únic esdeveniments pot desencadenar l'emissió de diverses senyals connectades entre elles a través d'una ranura -> Al fer clic es llança l'execució de *the_button_was_clicked*, que a la vegada desencadena l'esdeveniment *windowTitleChanged*.
+
+### Senyals definits per l'usuari
+
+Fins ara hem utilitzat els senyals predefinits pels components Qt. Definirem ara els nostres propis senyals. Això ens ajudarà a desacoblar (independitzar, fer que no depenguen unes de altres) les diferents part del programa. A més, ens permetrà fer la nostra aplicació *responsiva*, en compte de tindre un gran mètode *update*, podem partir el treball entre múltiples ranures i llançar-les amb una sola senyal.
+
+Utilitzarem la classe **Signal** amb els tipus que ens interesse:
+
+```py
+import sys
+
+from PySide6.QtCore import Qt, Signal
+from PySide6.QtWidgets import QApplication, QMainWindow
+
+class MainWindow(QMainWindow):
+    message = Signal(str)
+    value = Signal(int, str, int)
+    another = Signal(list)
+    onemore = Signal(dict)
+    anything = Signal(object)
+
+    def __init__(self):
+        super().__init__()
+        self.message.connect(self.custom_slot)
+        self.value.connect(self.custom_slot)
+        self.another.connect(self.custom_slot)
+        self.onemore.connect(self.custom_slot)
+        self.anything.connect(self.custom_slot)
+        
+        self.message.emit("my message")
+        self.value.emit(23, "abc", 1)
+        self.another.emit([1, 2, 3, 4, 5])
+        self.onemore.emit({"a": 2, "b": 7})
+        self.anything.emit(1223)
+
+    def custom_slot(self, a):
+        print(a)
+
+app = QApplication(sys.argv)
+window = MainWindow()
+window.show()
+app.exec()
+```
+
+Podeu baixar el codi [ací](resources/code/PySide6/custom_signals.py)
+
+Com podeu observar, utilitzem el mètode *emit* per a llançar el senyal, que és capaç de transmetre informació de qualsevol tipus, però no és una bona idea que les ranures reben qualsevol tipus, ja que s'hauria de gestionar a la funció, cosa que la complicaria molt.
+
+> Pots crear senyals en qualsevol subclasse de *QObject*, inclòs components, finestres i dialegs.
+
+### Modifiquem la informació emesa pels senyals
+
+Ja hem vist que els senyals poden emetre informació a les ranures. Però els senyals predefinits, sols envien dades que s'ha definit que envien en el seu disseny. Per exemple, *QPushButton.clicked* sols envia el valor de *checked* després de produir-se l'esdeveniment. 
+
+> Per a botons no seleccionable, *setCheckable(False)*, sempre enviarà el valor *False*.
+
+Per solucionar este problema podem *interceptar el senyal* i modificar les dades:
+
+```py
+import sys
+
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        btn = QPushButton("Press me")
+        btn.setCheckable(True)
+        btn.clicked.connect(lambda checked: self.button_clicked(checked, btn))
+        self.setCentralWidget(btn)
+
+    def button_clicked(self, checked, btn):
+        print(btn, checked)
+
+app = QApplication(sys.argv)
+window = MainWindow()
+window.show()
+app.exec()
+```
+
+#### Activitat 5
+
+Fes una aplicació que tinga un botó. Al fer clic sobre ell, imprimirà si el botó està seleccionat o no i un número aleatori entre 0 i 10.
