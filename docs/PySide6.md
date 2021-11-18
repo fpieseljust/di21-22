@@ -373,6 +373,8 @@ window.show()
 app.exec()
 ```
 
+Quan canviem el text del *LineEdit*, el senyal *textChanged* envia el text a la ranura a la qual està connectada, en aquest cas és la funció *setText* del *Label*, canviant així el seu text.
+
 ### Senyals definits per l'usuari
 
 Fins ara hem utilitzat els senyals predefinits pels components Qt. Definirem ara els nostres propis senyals. Això ens ajudarà a desacoblar (independitzar, fer que no depenguen unes de altres) les diferents part del programa. A més, ens permetrà fer la nostra aplicació *responsiva*, en compte de tindre un gran mètode *update*, podem partir el treball entre múltiples ranures i llançar-les amb una sola senyal.
@@ -454,9 +456,11 @@ app.exec()
 
 Pots baixar el codi [ací](resources/code/PySide6/signals_slots3.py)
 
+En aquest cas, el senyal *clicked* emetrà l'estat de *checked*. La funció lambda intercepta el senyal i afegeix la informació de l'objecte *btn*.
+
 #### Activitat 5
 
-Fes una aplicació que tinga un botó. Al fer clic sobre ell, imprimirà si el botó està seleccionat o no i un número aleatori entre 0 i 10.
+Fes una aplicació que tinga un botó. Al fer clic sobre ell, s'executarà una funció que rebrà l'estat del botó. A més, emetrà un nou senyal connectat a una altra funció, que rebrà l'estat del senyal i un número aleatori. Al rebre la nova funció el senyal, imprimirà per pantalla els valors del l'estat del botó i el número aleatori.
 
 ## Esdeveniments
 
@@ -515,6 +519,8 @@ window.show()
 app.exec()
 ```
 
-> Observeu que els esdeveniments de moviment del ratolí només es registren quan teniu el botó premut. Podeu canviar-ho cridant a `self.setMouseTracking(True)` de la finestra.  
+> Observeu que els esdeveniments de moviment del ratolí només es registren quan teniu el botó premut. Podeu canviar-ho afegint un atribut al widget central i cridant ade la finestra.  
+> `self.centralWidget().setAttribute(Qt.WA_TransparentForMouseEvents)` 
+> `self.setMouseTracking(False)`
 > També podeu notar que els esdeveniments de clic i de doble clic es desencadenen quan es prem el botó. Només l'esdeveniment de soltar es dispara quan es deixa de prémer.
 
