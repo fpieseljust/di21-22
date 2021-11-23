@@ -39,6 +39,7 @@ permalink: /PySide6/
     - [ListWidget](#listwidget)
     - [LineEdit](#lineedit)
     - [SpinBox](#spinbox)
+    - [Slider](#slider)
 
 ## Qt i PySide
 
@@ -869,3 +870,6 @@ app.exec()
 
 Pots baixar el codi [ací](resources/code/PySide6/Widgets/spinbox.py)
 
+#### Slider
+
+```python
