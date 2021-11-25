@@ -1,5 +1,5 @@
-from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QApplication, QMainWindow, QComboBox
+from PySide6.QtCore import Qt, QSize
+from PySide6.QtWidgets import QApplication, QMainWindow, QComboBox, QWidget
 
 class MainWindow(QMainWindow):
 
@@ -8,14 +8,17 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("My App")
 
-        self.widget = QComboBox()
-        self.widget.addItems(["One", "Two", "Three"])
+        self.widget = QWidget()
 
+        self.combo_box = QComboBox(self.widget)
+        self.combo_box.setFixedWidth(200)
+        self.combo_box.addItems(["One", "Two", "Three"])
+        
         # The default signal from currentIndexChanged sends the index
-        self.widget.currentIndexChanged.connect(self.index_changed)
+        self.combo_box.currentIndexChanged.connect(self.index_changed)
 
         # The same signal can send a text string
-        self.widget.currentTextChanged.connect(self.text_changed)
+        self.combo_box.currentTextChanged.connect(self.text_changed)
 
         self.setCentralWidget(self.widget)
 

@@ -1,23 +1,25 @@
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QApplication, QMainWindow, QLineEdit
+from PySide6.QtWidgets import QApplication, QMainWindow, QLineEdit, QWidget
 
 class MainWindow(QMainWindow):
-
+    
     def __init__(self):
         super(MainWindow, self).__init__()
 
         self.setWindowTitle("My App")
+        
+        widget = QWidget()
 
-        widget = QLineEdit()
-        widget.setMaxLength(10)
-        widget.setPlaceholderText("Enter your text")
+        line_edit = QLineEdit(widget)
+        line_edit.setMaxLength(10)
+        line_edit.setPlaceholderText("Enter your text")
 
         #widget.setReadOnly(True) # uncomment this to make readonly
 
-        widget.returnPressed.connect(self.return_pressed)
-        widget.selectionChanged.connect(self.selection_changed)
-        widget.textChanged.connect(self.text_changed)
-        widget.textEdited.connect(self.text_edited)
+        line_edit.returnPressed.connect(self.return_pressed)
+        line_edit.selectionChanged.connect(self.selection_changed)
+        line_edit.textChanged.connect(self.text_changed)
+        line_edit.textEdited.connect(self.text_edited)
 
         self.setCentralWidget(widget)
 

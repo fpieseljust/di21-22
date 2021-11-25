@@ -40,6 +40,7 @@ permalink: /PySide6/
     - [LineEdit](#lineedit)
     - [SpinBox](#spinbox)
     - [Slider](#slider)
+    - [Dial](#dial)
 
 ## Qt i PySide
 
@@ -702,8 +703,8 @@ Pots baixar el codi [ací](resources/code/PySide6/Widgets/checkbox.py)
 #### ComboBox
 
 ```python
-from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QApplication, QMainWindow, QComboBox
+from PySide6.QtCore import Qt, QSize
+from PySide6.QtWidgets import QApplication, QMainWindow, QComboBox, QWidget
 
 class MainWindow(QMainWindow):
 
@@ -712,22 +713,23 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("My App")
 
-        self.widget = QComboBox()
-        self.widget.addItems(["One", "Two", "Three"])
+        self.widget = QWidget()
 
+        self.combo_box = QComboBox(self.widget)
+        self.combo_box.setFixedWidth(200)
+        self.combo_box.addItems(["One", "Two", "Three"])
+        
         # The default signal from currentIndexChanged sends the index
-        self.widget.currentIndexChanged.connect(self.index_changed)
+        self.combo_box.currentIndexChanged.connect(self.index_changed)
 
         # The same signal can send a text string
-        self.widget.currentTextChanged.connect(self.text_changed)
+        self.combo_box.currentTextChanged.connect(self.text_changed)
 
         self.setCentralWidget(self.widget)
 
 
     def index_changed(self, i): # i is an int
         print(i)
-        self.widget.addItems(["Four"])
-
 
     def text_changed(self, s): # s is a str
         print(s)
@@ -781,25 +783,27 @@ Pots baixar el codi [ací](resources/code/PySide6/Widgets/listwidget.py)
 
 ```python
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QApplication, QMainWindow, QLineEdit
+from PySide6.QtWidgets import QApplication, QMainWindow, QLineEdit, QWidget
 
 class MainWindow(QMainWindow):
-
+    
     def __init__(self):
         super(MainWindow, self).__init__()
 
         self.setWindowTitle("My App")
+        
+        widget = QWidget()
 
-        widget = QLineEdit()
-        widget.setMaxLength(10)
-        widget.setPlaceholderText("Enter your text")
+        line_edit = QLineEdit(widget)
+        line_edit.setMaxLength(10)
+        line_edit.setPlaceholderText("Enter your text")
 
         #widget.setReadOnly(True) # uncomment this to make readonly
 
-        widget.returnPressed.connect(self.return_pressed)
-        widget.selectionChanged.connect(self.selection_changed)
-        widget.textChanged.connect(self.text_changed)
-        widget.textEdited.connect(self.text_edited)
+        line_edit.returnPressed.connect(self.return_pressed)
+        line_edit.selectionChanged.connect(self.selection_changed)
+        line_edit.textChanged.connect(self.text_changed)
+        line_edit.textEdited.connect(self.text_edited)
 
         self.setCentralWidget(widget)
 
@@ -873,3 +877,104 @@ Pots baixar el codi [ací](resources/code/PySide6/Widgets/spinbox.py)
 #### Slider
 
 ```python
+from PySide6.QtWidgets import QApplication, QLabel, QMainWindow, QSlider, QWidget
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("My App")
+
+        widget = QWidget()
+
+        slider = QSlider(widget)
+
+        self.label = QLabel("  0 ",widget)
+        self.label.move(25,0)
+
+        slider.setMinimum(-10)
+        slider.setMaximum(3)
+        # Or: widget.setRange(-10,3)
+
+        slider.setSingleStep(1)
+        slider.setSliderPosition(0)
+
+        slider.valueChanged.connect(self.value_changed)
+        slider.sliderMoved.connect(self.slider_position)
+        slider.sliderPressed.connect(self.slider_pressed)
+        slider.sliderReleased.connect(self.slider_released)
+
+        self.setCentralWidget(widget)
+
+    def value_changed(self, i):
+        self.label.setText(str(i))
+
+    def slider_position(self, p):
+        print("position", p)
+
+    def slider_pressed(self):
+        print("Pressed!")
+
+    def slider_released(self):
+        print("Released")
+
+app = QApplication([])
+window = MainWindow()
+window.show()
+
+app.exec()
+```
+
+Pots baixar el codi [ací](resources/code/PySide6/Widgets/slider.py)
+
+#### Dial
+
+```python
+from PySide6.QtWidgets import QApplication, QLabel, QMainWindow, QDial, QVBoxLayout, QWidget
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("My App")
+
+        widget = QWidget()
+
+        layout = QVBoxLayout(widget)
+
+        dial = QDial()
+        dial.setRange(0,60)
+        dial.setSingleStep(1)
+        layout.addWidget(dial)
+
+        self.label = QLabel(f'Value: {dial.sliderPosition()}')
+        layout.addWidget(self.label)
+
+        dial.valueChanged.connect(self.value_changed)
+        dial.sliderMoved.connect(self.slider_position)
+        dial.sliderPressed.connect(self.slider_pressed)
+        dial.sliderReleased.connect(self.slider_released)
+
+        self.setCentralWidget(widget)
+
+    def value_changed(self, i):
+        text = f'Value: {i}'
+        self.label.setText(text)
+
+    def slider_position(self, p):
+        print("position", p)
+
+    def slider_pressed(self):
+        print("Pressed!")
+
+    def slider_released(self):
+        print("Released")
+
+app = QApplication([])
+window = MainWindow()
+window.show()
+
+app.exec()
+```
+
+Pots baixar el codi [ací](resources/code/PySide6/Widgets/dial.py)

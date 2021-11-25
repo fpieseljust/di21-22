@@ -1,5 +1,5 @@
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QApplication, QMainWindow, QSpinBox
+from PySide6.QtWidgets import QApplication, QMainWindow, QDoubleSpinBox
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -7,7 +7,7 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("My App")
 
-        widget = QSpinBox()
+        widget = QDoubleSpinBox()
         # Or: widget = QDoubleSpinBox()
 
         widget.setMinimum(-10)
@@ -16,7 +16,7 @@ class MainWindow(QMainWindow):
 
         widget.setPrefix("$")
         widget.setSuffix("c")
-        widget.setSingleStep(3)  # Or e.g. 0.5 for QDoubleSpinBox
+        widget.setSingleStep(3.2)  # Or e.g. 0.5 for QDoubleSpinBox
         widget.valueChanged.connect(self.value_changed)
         widget.textChanged.connect(self.value_changed_str)
 
