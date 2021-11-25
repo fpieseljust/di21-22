@@ -5,7 +5,7 @@ site_dir: 'docs'
 nav:
     - Home: index.md
     - Unitats:
-      - Unitat 1 - Introducció a PySide6:
+      - Unitat 2 - Introducció a PySide6:
         - Introducció: unitats/pyside6/pyside6-intro.md
         - Signals - Slots: unitats/pyside6/pyside6-signals-slots.md
         - Widgets: unitats/pyside6/pyside6-widgets.md
