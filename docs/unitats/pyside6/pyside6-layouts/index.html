@@ -1,0 +1,880 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://fpieseljust.github.io/di21-22/unitats/pyside6/pyside6-layouts/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Layouts - Desenvolupament d'interfícies 21-22</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gestio-del-layout" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Desenvolupament d&#39;interfícies 21-22" class="md-header__button md-logo" aria-label="Desenvolupament d'interfícies 21-22" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desenvolupament d'interfícies 21-22
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Layouts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Desenvolupament d&#39;interfícies 21-22" class="md-nav__button md-logo" aria-label="Desenvolupament d'interfícies 21-22" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Desenvolupament d'interfícies 21-22
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Unitats
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unitats" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unitats
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Unitat 1 - Introducció a PySide6
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unitat 1 - Introducció a PySide6" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Unitat 1 - Introducció a PySide6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pyside6-intro/" class="md-nav__link">
+        Introducció
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pyside6-signals-slots/" class="md-nav__link">
+        Signals - Slots
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pyside6-widgets/" class="md-nav__link">
+        Widgets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Layouts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Layouts
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classe-color" class="md-nav__link">
+    Classe Color
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qvboxlayout" class="md-nav__link">
+    QVBoxLayout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qhboxlayout" class="md-nav__link">
+    QHBoxLayout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layouts-anidats" class="md-nav__link">
+    Layouts anidats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qgridlayout" class="md-nav__link">
+    QGridLayout
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classe-color" class="md-nav__link">
+    Classe Color
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qvboxlayout" class="md-nav__link">
+    QVBoxLayout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qhboxlayout" class="md-nav__link">
+    QHBoxLayout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layouts-anidats" class="md-nav__link">
+    Layouts anidats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qgridlayout" class="md-nav__link">
+    QGridLayout
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="gestio-del-layout">Gestió del layout</h1>
+<p>Fins ara hem creat una finestra i hi hem afegit un <em>widget</em>. Tanmateix, normalment volem afegir més d'un <em>widget</em> a una finestra i tenir cert control sobre on va a parar. Per fer-ho a Qt fem servir <em>layouts</em>. Hi ha 4 dissenys bàsics disponibles a Qt, que s'enumeren a la taula següent.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Layout</th>
+<th align="left">Comportament</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">QHBoxLayout</td>
+<td align="left">Disseny horitzontal</td>
+</tr>
+<tr>
+<td align="left">QVBoxLayout</td>
+<td align="left">Disseny vertical</td>
+</tr>
+<tr>
+<td align="left">QGridLayout</td>
+<td align="left">Disseny de graella indexable XxY</td>
+</tr>
+<tr>
+<td align="left">QStackedLayout</td>
+<td align="left">Apilats en profunditat</td>
+</tr>
+</tbody>
+</table>
+<p>Com podeu veure, hi ha tres dissenys posicionals disponibles a Qt. El VBoxLayout, QHBoxLayout i QGridLayout. A més, també hi ha QStackedLayout que us permet col·locar <em>widgets</em> un damunt de l'altre dins del mateix espai, tot i que mostra només un <em>layout</em> alhora.</p>
+<blockquote>
+<p>Més endavant utilitzarem uns ferramenta gràfica per definir el <em>layout</em>.</p>
+</blockquote>
+<h2 id="classe-color">Classe Color</h2>
+<p>Per facilitar la visualització dels dissenys, primer crearem un <em>widget</em> personalitzat senzill que mostre un color sòlid que triem. Això ajudarà a distingir els <em>widgets</em> que afegim al disseny.</p>
+<pre><code class="language-python">from PySide6.QtGui import QPalette, QColor 
+from PySide6.QtWidgets import QWidget
+
+
+class Color(QWidget):
+
+    def __init__(self, color):
+        super(Color, self).__init__()
+        self.setAutoFillBackground(True)
+
+        palette = self.palette()
+        palette.setColor(QPalette.Window, QColor(color))
+        self.setPalette(palette)
+
+</code></pre>
+<p>En aquest codi subclassem QWidget per crear el nostre propi widget personalitzat Color. Acceptem un únic paràmetre a l'hora de crear un objecte Color: Color(un str). Primer establim .<em>setAutoFillBackground</em> a True per dir-li al <em>widget</em> que ompliga automàticament el seu fons amb el color que li hem passat. A continuació, obtenim la paleta actual (que és la paleta global de l'escriptori per defecte) i canviem el color <em>QPalette.Window</em> actual a un nou QColor descrit pel color del valor que hem passat. Finalment, tornem a aplicar aquesta paleta al <em>widget</em>. El resultat final és un <em>widget</em> que s'omple amb un color sòlid, què vam especificar quan el vam crear.</p>
+<blockquote>
+<p>Més endavant tractarem els <em>widget</em>s personalitzats amb més detall.</p>
+<p>Podeu establir l'espaiat al voltant del disseny amb <code>.setContentMargins</code> o establir l'espai entre elements amb <code>.setSpacing</code>.</p>
+</blockquote>
+<h2 id="qvboxlayout">QVBoxLayout</h2>
+<p>El layout vertical va afegint els widgets un damunt de l'altre. Si afegim un nou <em>widget</em> l'afegirà a la part de baix.</p>
+<p><img alt="VBoxLayout" src="../../../resources/img/PySide6/layouts/vboxlayout.png" /></p>
+<pre><code class="language-python">import sys
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout
+
+from color_widget import Color
+
+class MainWindow(QMainWindow):
+
+    def __init__(self):
+        super(MainWindow, self).__init__()
+
+        self.setWindowTitle(&quot;My App&quot;)
+
+        layout = QVBoxLayout()
+
+        layout.addWidget(Color('red'))
+        layout.addWidget(Color('green'))
+        layout.addWidget(Color('blue'))
+
+        widget = QWidget()
+        widget.setLayout(layout)
+        self.setCentralWidget(widget)
+
+
+app = QApplication(sys.argv)
+
+window = MainWindow()
+window.show()
+
+app.exec()
+</code></pre>
+<h2 id="qhboxlayout">QHBoxLayout</h2>
+<p>El <em>layout</em> horitzontal va afegint els components un al costat de l'altre. Si afegim un nou component, l'afegirà a l'esquerra.</p>
+<p><img alt="QHBoxLayout" src="../../../resources/img/PySide6/layouts/hboxlayout.png" /></p>
+<pre><code class="language-python">import sys
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QHBoxLayout
+
+from color_widget import Color
+
+
+class MainWindow(QMainWindow):
+
+    def __init__(self):
+        super(MainWindow, self).__init__()
+
+        self.setWindowTitle(&quot;My App&quot;)
+
+        layout = QHBoxLayout()
+
+        layout.addWidget(Color('red'))
+        layout.addWidget(Color('green'))
+        layout.addWidget(Color('blue'))
+
+        widget = QWidget()
+        widget.setLayout(layout)
+        self.setCentralWidget(widget)
+
+
+app = QApplication(sys.argv)
+
+window = MainWindow()
+window.show()
+
+app.exec()
+</code></pre>
+<h2 id="layouts-anidats">Layouts <em>anidats</em></h2>
+<p>Per a dissenys més complexos, podem niuar els dissenys els uns dintre dels altres mitjançant <code>.addLayout</code> en un disseny. A continuació, afegim un <em>QVBoxLayout</em> al <em>QHBoxLayout</em> principal. Si afegim alguns <em>widgets</em> al <em>QVBoxLayout</em>, estaran disposats verticalment a la primera ranura del disseny principal.</p>
+<pre><code class="language-python">import sys
+from PySide6.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QHBoxLayout, QVBoxLayout
+)
+
+from color_widget import Color
+
+
+class MainWindow(QMainWindow):
+
+    def __init__(self):
+        super(MainWindow, self).__init__()
+
+        self.setWindowTitle(&quot;My App&quot;)
+
+        layout1 = QHBoxLayout()
+        layout2 = QVBoxLayout()
+        layout3 = QVBoxLayout()
+
+        layout1.setContentsMargins(0,0,0,0)
+        layout1.setSpacing(0)
+
+        layout2.addWidget(Color('red'))
+        layout2.addWidget(Color('yellow'))
+        layout2.addWidget(Color('purple'))
+
+        layout1.addLayout(layout2)
+
+        layout1.addWidget(Color('green'))
+
+        layout3.addWidget(Color('red'))
+        layout3.addWidget(Color('purple'))
+
+        layout1.addLayout( layout3 )
+
+        widget = QWidget()
+        widget.setLayout(layout1)
+        self.setCentralWidget(widget)
+
+
+app = QApplication(sys.argv)
+
+window = MainWindow()
+window.show()
+
+app.exec()
+</code></pre>
+<h2 id="qgridlayout">QGridLayout</h2>
+<p>Per molt útils que siguen, si proveu d'utilitzar <code>QVBoxLayout</code> i <code>QHBoxLayout</code> per dissenyar diversos elements, per exemple a un formulari, us serà molt difícil assegurar-vos que els components de mida diferent s'alinein. La solució a això és <code>QGridLayout</code>.</p>
+<p><img alt="QGridLayout" src="../../../resources/img/PySide6/layouts/gridlayout1.png" /></p>
+<p>QGridLayout us permet posicionar elements específicament en una quadrícula. Especifiqueu les posicions de fila i columna per a cada component. Podeu ometre elements i es deixaran buits.</p>
+<p><img alt="QGridLayout amb buits" src="../../../resources/img/PySide6/layouts/gridlayout2.png" /></p>
+<pre><code class="language-python">import sys
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QGridLayout
+
+from color_widget import Color 
+
+class MainWindow(QMainWindow):
+
+    def __init__(self):
+        super(MainWindow, self).__init__()
+
+        self.setWindowTitle(&quot;My App&quot;)
+
+        layout = QGridLayout()
+
+        layout.addWidget(Color('red'), 0, 0)
+        layout.addWidget(Color('green'), 1, 0)
+        layout.addWidget(Color('blue'), 1, 1)
+        layout.addWidget(Color('purple'), 2, 1)
+
+        widget = QWidget()
+        widget.setLayout(layout)
+        self.setCentralWidget(widget)
+
+app = QApplication(sys.argv)
+
+window = MainWindow()
+window.show()
+
+app.exec()
+</code></pre>
+<p><img alt="gridlayout3" src="../../../resources/img/PySide6/layouts/gridlayout3.png" /></p>
+<h1 id="qstackedlayout-molts-widgets-al-mateix-espai">QStackedLayout <em>molts widgets al mateix espai</em></h1>
+<p>El disseny final que tractarem és el QStackedLayout. Tal com es descriu, aquest disseny us permet col·locar elements directament els uns damunt dels altres (apilats). A continuació, podeu seleccionar quin disseny voleu mostrar. Podeu utilitzar-lo per dibuixar capes en una aplicació gràfica o per imitar una interfície semblant a una pestanya. Tingueu en compte que també hi ha <code>QStackedWidget</code>, que és un component de contenidor que funciona exactament de la mateixa manera. Això és útil si voleu afegir una pila de components directament a un <em>QMainWindow</em> amb <em>setCentralWidget</em>.</p>
+<p><img alt="QStackedLayout" src="../../../resources/img/PySide6/layouts/qstackedlayout1.png" /></p>
+<p><em>QStackedWidget</em> és exactament com funcionen les vistes amb pestanyes a les aplicacions. Només una pestanya és visible alhora. Podeu controlar quin components mostrar en qualsevol moment utilitzant <code>.setCurrentIndex()</code> o <code>.setCurrentWidget()</code> per establir l'element mitjançant l'índex o per la referència al propi component.</p>
+<p>A continuació es mostra una breu demostració amb <em>QStackedLayout</em> en combinació amb <em>QButton</em> per proporcionar una interfície semblant a una pestanya a una aplicació:</p>
+<pre><code class="language-python">import sys
+
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import (
+    QApplication,
+    QHBoxLayout,
+    QLabel,
+    QMainWindow,
+    QPushButton,
+    QStackedLayout,
+    QVBoxLayout,
+    QWidget,
+)
+
+from color_widget import Color
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle(&quot;My App&quot;)
+
+        pagelayout = QVBoxLayout()
+        button_layout = QHBoxLayout()
+        self.stacklayout = QStackedLayout()
+
+        pagelayout.addLayout(button_layout)
+        pagelayout.addLayout(self.stacklayout)
+
+        btn = QPushButton(&quot;red&quot;)
+        btn.pressed.connect(self.activate_tab_1)
+        button_layout.addWidget(btn)
+        self.stacklayout.addWidget(Color(&quot;red&quot;))
+
+        btn = QPushButton(&quot;green&quot;)
+        btn.pressed.connect(self.activate_tab_2)
+        button_layout.addWidget(btn)
+        self.stacklayout.addWidget(Color(&quot;green&quot;))
+
+        btn = QPushButton(&quot;yellow&quot;)
+        btn.pressed.connect(self.activate_tab_3)
+        button_layout.addWidget(btn)
+        self.stacklayout.addWidget(Color(&quot;yellow&quot;))
+
+        widget = QWidget()
+        widget.setLayout(pagelayout)
+        self.setCentralWidget(widget)
+
+    def activate_tab_1(self):
+        self.stacklayout.setCurrentIndex(0)
+
+    def activate_tab_2(self):
+        self.stacklayout.setCurrentIndex(1)
+
+    def activate_tab_3(self):
+        self.stacklayout.setCurrentIndex(2)
+
+
+app = QApplication(sys.argv)
+
+window = MainWindow()
+window.show()
+
+app.exec()
+</code></pre>
+<p>El resultat és la següent aplicació:</p>
+<p><img alt="Exemple QStackedLayout" src="../../../resources/img/PySide6/exemple_stacked_layout.png" /></p>
+<h2 id="qtabwidget">QTabWidget</h2>
+<p>Qt en realitat proporciona un TabWidget que proporciona aquest tipus de disseny en forma de widget. Vegeu el següent exemple amb QTabWidget:</p>
+<pre><code class="language-python">import sys
+
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import (
+    QApplication,
+    QLabel,
+    QMainWindow,
+    QPushButton,
+    QTabWidget,
+    QWidget,
+)
+
+from color_widget import Color
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle(&quot;My App&quot;)
+
+        tabs = QTabWidget()
+        tabs.setTabPosition(QTabWidget.West)
+        tabs.setMovable(True)
+
+        for n, color in enumerate([&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;yellow&quot;]):
+            tabs.addTab(Color(color), color)
+
+        self.setCentralWidget(tabs)
+
+
+app = QApplication(sys.argv)
+
+window = MainWindow()
+window.show()
+
+app.exec()
+</code></pre>
+<p><img alt="TabWidget" src="../../../resources/img/PySide6/layouts/layout9.png" /></p>
+<p>Com podeu veure, és una mica més senzill i una mica més atractiu! Podeu establir la posició de les pestanyes mitjançant les direccions cardinals, canviar si les pestanyes es poden moure amb <code>.setMoveable</code>. Notareu que la barra de pestanyes de macOS té un aspecte molt diferent de les altres; de manera predeterminada, les pestanyes de macOS adopten un estil de pastilla o bombolla. A macOS, normalment s'utilitza per als panells de configuració amb pestanyes. Per als documents, podeu activar el mode de document per oferir pestanyes esveltes semblants a les que veieu a altres plataformes. Aquesta opció no té cap efecte en altres plataformes.</p>
+<p><img alt="TabWidget macOS" src="../../../resources/img/PySide6/layouts/layout9-mac-document.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../pyside6-widgets/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Widgets" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Widgets
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../about/" class="md-footer__link md-footer__link--next" aria-label="Next: About" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              About
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

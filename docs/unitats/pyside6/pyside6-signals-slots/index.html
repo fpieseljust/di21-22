@@ -1,0 +1,900 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://fpieseljust.github.io/di21-22/unitats/pyside6/pyside6-signals-slots/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Signals - Slots - Desenvolupament d'interfícies 21-22</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#senyals-i-ranures-signal-slots" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Desenvolupament d&#39;interfícies 21-22" class="md-header__button md-logo" aria-label="Desenvolupament d'interfícies 21-22" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desenvolupament d'interfícies 21-22
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Signals - Slots
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Desenvolupament d&#39;interfícies 21-22" class="md-nav__button md-logo" aria-label="Desenvolupament d'interfícies 21-22" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Desenvolupament d'interfícies 21-22
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Unitats
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unitats" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unitats
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Unitat 1 - Introducció a PySide6
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Unitat 1 - Introducció a PySide6" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Unitat 1 - Introducció a PySide6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pyside6-intro/" class="md-nav__link">
+        Introducció
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Signals - Slots
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Signals - Slots
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#senyals-i-ranures-signal-slots" class="md-nav__link">
+    Senyals i ranures (signal &amp; slots)
+  </a>
+  
+    <nav class="md-nav" aria-label="Senyals i ranures (signal &amp; slots)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activitat-4-entregable" class="md-nav__link">
+    Activitat 4 (entregable)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encadenaments-de-senyals" class="md-nav__link">
+    Encadenaments de senyals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connectem-components-entre-si" class="md-nav__link">
+    Connectem components entre si
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#senyals-definits-per-lusuari" class="md-nav__link">
+    Senyals definits per l'usuari
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifiquem-la-informacio-emesa-pels-senyals" class="md-nav__link">
+    Modifiquem la informació emesa pels senyals
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifiquem la informació emesa pels senyals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activitat-5" class="md-nav__link">
+    Activitat 5
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esdeveniments" class="md-nav__link">
+    Esdeveniments
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pyside6-widgets/" class="md-nav__link">
+        Widgets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pyside6-layouts/" class="md-nav__link">
+        Layouts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#senyals-i-ranures-signal-slots" class="md-nav__link">
+    Senyals i ranures (signal &amp; slots)
+  </a>
+  
+    <nav class="md-nav" aria-label="Senyals i ranures (signal &amp; slots)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activitat-4-entregable" class="md-nav__link">
+    Activitat 4 (entregable)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encadenaments-de-senyals" class="md-nav__link">
+    Encadenaments de senyals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connectem-components-entre-si" class="md-nav__link">
+    Connectem components entre si
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#senyals-definits-per-lusuari" class="md-nav__link">
+    Senyals definits per l'usuari
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifiquem-la-informacio-emesa-pels-senyals" class="md-nav__link">
+    Modifiquem la informació emesa pels senyals
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifiquem la informació emesa pels senyals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activitat-5" class="md-nav__link">
+    Activitat 5
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esdeveniments" class="md-nav__link">
+    Esdeveniments
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Signals - Slots</h1>
+                
+                <h2 id="senyals-i-ranures-signal-slots">Senyals i ranures (signal &amp; slots)</h2>
+<p>En l’anterior aplicació hem inclòs un botó, però que no executa ninguna acció al fer clic sobre ell. Necessitem connectar les accions a alguna funcionalitat. En Qt, açò s’aconseguix gràcies a les senyals i les ranures.</p>
+<p>Una <strong>senyal</strong> és una notificació emesa pels components quan es produeix un esdeveniment. </p>
+<p>Una <strong>ranura</strong> és el nom que Qt dona als rebedors de senyals. En Python, qualsevol funció pot ser una ranura, simplement connectant-li una senyal. </p>
+<pre><code class="language-py">from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
+from PySide6.QtCore import QSize
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+
+        self.setFixedSize(QSize(300, 300))
+        self.setWindowTitle(&quot;Exemple signals-slots 1&quot;)
+
+        pybutton = QPushButton('Clic', self)
+
+        #Connectem la senyal clicked a la ranura button_pressed
+        pybutton.clicked.connect(self.button_pressed) 
+
+        pybutton.resize(100, 100)
+        pybutton.move(100, 100)
+
+    def button_pressed(self):
+        '''
+            S'executaà al rebre la notificació de que s'ha apretat el botó:
+            - Observeu que la consola imprimirà &quot;Clic rebut!&quot; al fer clic al botó
+        '''
+        print('Clic rebut!')
+
+if __name__ == &quot;__main__&quot;:
+    app = QApplication([])
+    mainWin = MainWindow()
+    mainWin.show()
+    app.exec()
+</code></pre>
+<p>Pots baixar el codi <a href="../../../resources/code/PySide6/Signals-Slots/signals_slots1.py">ací</a></p>
+<blockquote>
+<p>En l'anterior codi, a més de connectar la senyal a l'slot, hem utilitzat les funcions resize i move per a assignar el tamany i situar un component.<br />
+Consulta la documentació per obtindre <a href="https://doc.qt.io/qt-6/qpushbutton.html">més informació sobre les senyals de QPushButton</a>.</p>
+</blockquote>
+<h3 id="activitat-4-entregable">Activitat 4 (entregable)</h3>
+<p>Fes una aplicació amb tres botons. Inicialment, l'aplicació ocuparà el tamany normalitzat i els botons estaran centrats, tant verticalment com horitzontalment en tot moment:
+- Inicialment l'aplicació es mostrarà centrada sobre la pantalla amb el tamany normalitzat.
+- Al fer clic al botó de l'esquerra <em>Maximitza</em>, l'aplicació passarà a ocupar el tamany màxim definit.
+- Al fer clic al botó de la dreta <em>Minimitza</em>, l'aplicació passarà a ocupar el tamany mínim definit.
+- Al fer clic al botó central <em>Normalitza</em>, l'aplicació passarà a ocupar de nou el tamany normalitzat.
+- En cada cas, els botons es deshabilitzaran segons corresponga. És a dir, en tamany normalitzat, el botó corresponent a normalitzar el tamany estarà deshabilitat i la restat habilitats. Per a la resta de tamanys, aplicarem el mateix criteri.
+- El tamanys normal, màxim i mínim de finestra, així com els tamanys de botó estaran definits a un arxiu config.py
+- El tamany mínim mai podrà ser inferior a la suma dels tamanys de botó.
+- El <em>title</em> de l'aplicació mostrarà en cada moment en quin estat es troba <em>Normalitzat, Maximitzat o Minimitzat</em> </p>
+<p><img alt="normal" src="../../../resources/img/PySide6/a3-normal.png" /></p>
+<p><img alt="min" src="../../../resources/img/PySide6/a3-min.png" /></p>
+<h2 id="encadenaments-de-senyals">Encadenaments de senyals</h2>
+<p>Fixa't en l'exemple següent:</p>
+<pre><code class="language-py">import sys
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle(&quot;My App&quot;)
+
+        button = QPushButton(&quot;Press Me!&quot;)
+        button.setCheckable(True)
+        button.clicked.connect(self.the_button_was_clicked)
+        button.clicked.connect(self.the_button_was_toggled)
+
+        self.windowTitleChanged.connect(self.the_window_title_changed)
+
+        # Set the central widget of the Window.
+        self.setCentralWidget(button)
+
+    def the_button_was_clicked(self):
+        if self.windowTitle() == &quot;La meua aplicació&quot;:
+            self.setWindowTitle(&quot;My App&quot;)
+        else:
+            self.setWindowTitle(&quot;La meua aplicació&quot;)
+
+    def the_button_was_toggled(self):
+        print(&quot;Clic rebut!&quot;)
+
+    def the_window_title_changed(self, window_title):
+        print(&quot;Window title changed: %s&quot; % window_title)
+
+
+app = QApplication(sys.argv)
+window = MainWindow()
+window.show()
+app.exec()
+</code></pre>
+<p>Pots baixar el codi <a href="../../../resources/code/PySide6/Signals-Slots/signals_slots2.py">ací</a></p>
+<p>Treballant amb senyals i ranures hem de tindre en compte:
+- Un únic senyal pot estar connectat a diverses ranures -&gt; Clic desencadena l'execució de <em>the_button_was_toggled</em> i <em>the_button_was_clicked</em>.
+- Les ranures poden rebre arguments -&gt; La ranura <em>the_window_title_changed</em> rep <em>window_title</em> com a argument.
+- Un únic esdeveniments pot desencadenar l'emissió de diverses senyals connectades entre elles a través d'una ranura -&gt; Al fer clic es llança l'execució de <em>the_button_was_clicked</em>, que a la vegada desencadena l'esdeveniment <em>windowTitleChanged</em>.</p>
+<h2 id="connectem-components-entre-si">Connectem components entre si</h2>
+<p>No sempre necessitem definir una funció per gestionar un esdeveniment, podem connectar components entre si per fer-ho:</p>
+<pre><code class="language-py">import sys
+from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QVBoxLayout, QWidget
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle(&quot;My App&quot;)
+
+        container = QWidget()
+        container.setFixedSize(240,100)
+
+        self.label = QLabel(container)
+        self.label.setFixedSize(200,20)
+        self.label.move(20, 20)
+
+        self.input = QLineEdit(container)
+        self.input.setFixedSize(200,20)
+        self.input.move(20, 60)
+        self.input.textChanged.connect(self.label.setText)
+
+        self.setCentralWidget(container)
+
+app = QApplication(sys.argv)
+
+window = MainWindow()
+window.show()
+
+app.exec()
+</code></pre>
+<p>Pots baixar el codi <a href="../../../resources/code/PySide6/Signals-Slots/signals_slots3.py">ací</a></p>
+<p>Quan canviem el text del <em>LineEdit</em>, el senyal <em>textChanged</em> envia el text a la ranura a la qual està connectada, en aquest cas és la funció <em>setText</em> del <em>Label</em>, canviant així el seu text.</p>
+<h2 id="senyals-definits-per-lusuari">Senyals definits per l'usuari</h2>
+<p>Fins ara hem utilitzat els senyals predefinits pels components Qt. Definirem ara els nostres propis senyals. Això ens ajudarà a desacoblar (independitzar, fer que no depenguen unes de altres) les diferents part del programa. A més, ens permetrà fer la nostra aplicació <em>responsiva</em>, en compte de tindre un gran mètode <em>update</em>, podem partir el treball entre múltiples ranures i llançar-les amb una sola senyal.</p>
+<p>Utilitzarem la classe <strong>Signal</strong> amb els tipus que ens interesse:</p>
+<pre><code class="language-py">import sys
+
+from PySide6.QtCore import Qt, Signal
+from PySide6.QtWidgets import QApplication, QMainWindow
+
+class MainWindow(QMainWindow):
+    message = Signal(str)
+    value = Signal(int, str, int)
+    another = Signal(list)
+    onemore = Signal(dict)
+    anything = Signal(object)
+
+    def __init__(self):
+        super().__init__()
+        self.message.connect(self.custom_slot)
+        self.value.connect(self.custom_slot)
+        self.another.connect(self.custom_slot)
+        self.onemore.connect(self.custom_slot)
+        self.anything.connect(self.custom_slot)
+
+        self.message.emit(&quot;my message&quot;)
+        self.value.emit(23, &quot;abc&quot;, 1)
+        self.another.emit([1, 2, 3, 4, 5])
+        self.onemore.emit({&quot;a&quot;: 2, &quot;b&quot;: 7})
+        self.anything.emit(1223)
+
+    def custom_slot(self, a):
+        print(a)
+
+app = QApplication(sys.argv)
+window = MainWindow()
+window.show()
+app.exec()
+</code></pre>
+<p>Podeu baixar el codi <a href="../../../resources/code/PySide6/Signals-Slots/custom_signals.py">ací</a></p>
+<p>Com podeu observar, utilitzem el mètode <em>emit</em> per a llançar el senyal, que és capaç de transmetre informació de qualsevol tipus, però no és una bona idea que les ranures reben qualsevol tipus, ja que s'hauria de gestionar a la funció, cosa que la complicaria molt.</p>
+<blockquote>
+<p>Pots crear senyals en qualsevol subclasse de <em>QObject</em>, inclòs components, finestres i dialegs.</p>
+</blockquote>
+<h2 id="modifiquem-la-informacio-emesa-pels-senyals">Modifiquem la informació emesa pels senyals</h2>
+<p>Ja hem vist que els senyals poden emetre informació a les ranures. Però els senyals predefinits, sols envien dades que s'ha definit que envien en el seu disseny. Per exemple, <em>QPushButton.clicked</em> sols envia el valor de <em>checked</em> després de produir-se l'esdeveniment. </p>
+<blockquote>
+<p>Per a botons no seleccionable, <em>setCheckable(False)</em>, sempre enviarà el valor <em>False</em>.</p>
+</blockquote>
+<p>Per solucionar este problema podem <em>interceptar el senyal</em> i modificar les dades:</p>
+<pre><code class="language-py">import sys
+
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        btn = QPushButton(&quot;Press me&quot;)
+        btn.setCheckable(True)
+        btn.clicked.connect(lambda checked: self.button_clicked(checked, btn))
+        self.setCentralWidget(btn)
+
+    def button_clicked(self, checked, btn):
+        print(btn, checked)
+
+app = QApplication(sys.argv)
+window = MainWindow()
+window.show()
+app.exec()
+</code></pre>
+<p>Pots baixar el codi <a href="../../../resources/code/PySide6/Signals-Slots/custom_signals2.py">ací</a></p>
+<p>En aquest cas, el senyal <em>clicked</em> emetrà l'estat de <em>checked</em>. La funció lambda intercepta el senyal i afegeix la informació de l'objecte <em>btn</em>.</p>
+<h3 id="activitat-5">Activitat 5</h3>
+<p>Fes una aplicació que tinga un botó. Al fer clic sobre ell, s'executarà una funció que rebrà l'estat del botó. A més, emetrà un nou senyal connectat a una altra funció, que rebrà l'estat del senyal i un número aleatori. Al rebre la nova funció el senyal, imprimirà per pantalla els valors del l'estat del botó i el número aleatori.</p>
+<h2 id="esdeveniments">Esdeveniments</h2>
+<p>Cada interacció que l'usuari té amb una aplicació Qt és un esdeveniment. Hi ha molts tipus d'esdeveniments. Cada esdeveniment és un objecte que empaqueta informació sobre la interacció que l'ha produït. Els esdeveniments es passen a controladors d'esdeveniments (<em>event handler</em>) específics del component on s'ha produït la interacció.</p>
+<p>Podem definir gestors d'esdeveniments personalitzats, modificant la manera com els vostres components responen a aquests esdeveniments. Els controladors d'esdeveniments es defineixen com qualsevol altre mètode, però el nom és específic per al tipus d'esdeveniment que gestionen.</p>
+<p>Un dels principals esdeveniments que reben els components és el QMouseEvent. Els esdeveniments QMouseEvent es produixen en moure i clicar el ratolí sobre un component. Els següents gestors d'esdeveniments estan disponibles per gestionar els esdeveniments del ratolí:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Gestor d'esdeveniment</th>
+<th align="center">Tipus d'esdeveniment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">mouseMoveEvent</td>
+<td align="center">Moviment de ratolí</td>
+</tr>
+<tr>
+<td align="center">mousePressEvent</td>
+<td align="center">Botó del ratolí premut</td>
+</tr>
+<tr>
+<td align="center">mouseReleaseEvent</td>
+<td align="center">Botó de ratolí soltat</td>
+</tr>
+<tr>
+<td align="center">mouseDoubleClickEvent</td>
+<td align="center">Doble clic detectat</td>
+</tr>
+</tbody>
+</table>
+<p>Per exemple, fer clic en un component provocarà que s'envie un QMouseEvent al gestor d'esdeveniments <em>.mousePressEvent</em> del component. Aquest controlador pot utilitzar l'objecte d'esdeveniment per recollir informació sobre què ha passat, com ara què va desencadenar l'esdeveniment i on concretament es va produir.</p>
+<p>Podeu interceptar esdeveniments heretant i anul·lant el mètode del controlador a la classe derivada. Podeu triar filtrar, modificar o ignorar esdeveniments, passant-los al controlador normal de l'esdeveniment cridant a la funció de classe pare amb mètode super(). </p>
+<p>Veiem açò amb una finestra principal. </p>
+<blockquote>
+<p>En cada cas, <em>e</em> rebrà l'esdeveniment produït.</p>
+</blockquote>
+<pre><code class="language-py">import sys
+
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QLabel, QMainWindow, QTextEdit
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.label = QLabel(&quot;Click in this window&quot;)
+        self.setCentralWidget(self.label)
+
+    def mouseMoveEvent(self, e):
+        self.label.setText(&quot;mouseMoveEvent&quot;)
+
+    def mousePressEvent(self, e):
+        self.label.setText(&quot;mousePressEvent&quot;)
+
+    def mouseReleaseEvent(self, e):
+        self.label.setText(&quot;mouseReleaseEvent&quot;)
+
+    def mouseDoubleClickEvent(self, e):
+        self.label.setText(&quot;mouseDoubleClickEvent&quot;)
+
+
+app = QApplication(sys.argv)
+
+window = MainWindow()
+window.show()
+
+app.exec()
+</code></pre>
+<p>Pots baixar el codi <a href="../../../resources/code/PySide6/Signals-Slots/events.py">ací</a></p>
+<blockquote>
+<p>Observeu que els esdeveniments de moviment del ratolí només es registren quan teniu el botó premut. Podeu canviar-ho afegint un atribut al widget central i cridant ade la finestra.  </p>
+<p><code>self.centralWidget().setAttribute(Qt.WA_TransparentForMouseEvents)</code> 
+<code>self.setMouseTracking(False)</code>  </p>
+<p>També podeu notar que els esdeveniments de clic i de doble clic es desencadenen quan es prem el botó. Només l'esdeveniment de soltar es dispara quan es deixa de prémer.</p>
+</blockquote>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../pyside6-intro/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introducció" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introducció
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../pyside6-widgets/" class="md-footer__link md-footer__link--next" aria-label="Next: Widgets" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Widgets
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>
