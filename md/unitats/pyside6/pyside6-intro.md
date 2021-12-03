@@ -1,11 +1,3 @@
----
-title: GUI amb PySide6
-author: Ferran Cunyat
-lang: ca-ES
-layout: page
-permalink: /PySide6/
----
-
 ![Logo Python + Qt](../../resources/img/PySide6/1200px-Python_and_Qt.svg.png)
 
 ## Qt i PySide

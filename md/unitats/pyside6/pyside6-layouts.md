@@ -346,3 +346,7 @@ app.exec()
 Com podeu veure, és una mica més senzill i una mica més atractiu! Podeu establir la posició de les pestanyes mitjançant les direccions cardinals, canviar si les pestanyes es poden moure amb `.setMoveable`. Notareu que la barra de pestanyes de macOS té un aspecte molt diferent de les altres; de manera predeterminada, les pestanyes de macOS adopten un estil de pastilla o bombolla. A macOS, normalment s'utilitza per als panells de configuració amb pestanyes. Per als documents, podeu activar el mode de document per oferir pestanyes esveltes semblants a les que veieu a altres plataformes. Aquesta opció no té cap efecte en altres plataformes.
 
 ![TabWidget macOS](../../resources/img/PySide6/layouts/layout9-mac-document.png)
+
+### Pràctica UD2 - Calculadora
+
+Fes una calculadora gràfica. No ha de tindre el comportament típic de les calculadores, on s'introdueix un primer operand, s'introdueix l'operació, buidant-se la pantalla en aquest moment, i després el segon operand i finalment el = o una nova operació. En la nostra calculadora apareixerà a la pantalla una expressió matemàtica a l'estil de `(4 + 3) * 2^3`. Per a calcula el resultat utilitzarem la funció eval.
