@@ -1,0 +1,3 @@
+# Pràctica UD2 - Calculadora
+
+Fes una calculadora gràfica. No ha de tindre el comportament típic de les calculadores, on s'introdueix un primer operand, s'introdueix l'operació, buidant-se la pantalla en aquest moment, i després el segon operand i finalment el = o una nova operació. En la nostra calculadora apareixerà a la pantalla una expressió matemàtica a l'estil de `(4 + 3) * 2^3`. Per a calcula el resultat utilitzarem la funció eval.
