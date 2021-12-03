@@ -364,6 +364,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#qstackedlayout" class="md-nav__link">
+    QStackedLayout
+  </a>
+  
+    <nav class="md-nav" aria-label="QStackedLayout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qtabwidget" class="md-nav__link">
+    QTabWidget
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -474,6 +494,26 @@
   <a href="#qgridlayout" class="md-nav__link">
     QGridLayout
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qstackedlayout" class="md-nav__link">
+    QStackedLayout
+  </a>
+  
+    <nav class="md-nav" aria-label="QStackedLayout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qtabwidget" class="md-nav__link">
+    QTabWidget
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -696,7 +736,7 @@ window.show()
 app.exec()
 </code></pre>
 <p><img alt="gridlayout3" src="../../../resources/img/PySide6/layouts/gridlayout3.png" /></p>
-<h1 id="qstackedlayout-molts-widgets-al-mateix-espai">QStackedLayout <em>molts widgets al mateix espai</em></h1>
+<h2 id="qstackedlayout">QStackedLayout</h2>
 <p>El disseny final que tractarem és el QStackedLayout. Tal com es descriu, aquest disseny us permet col·locar elements directament els uns damunt dels altres (apilats). A continuació, podeu seleccionar quin disseny voleu mostrar. Podeu utilitzar-lo per dibuixar capes en una aplicació gràfica o per imitar una interfície semblant a una pestanya. Tingueu en compte que també hi ha <code>QStackedWidget</code>, que és un component de contenidor que funciona exactament de la mateixa manera. Això és útil si voleu afegir una pila de components directament a un <em>QMainWindow</em> amb <em>setCentralWidget</em>.</p>
 <p><img alt="QStackedLayout" src="../../../resources/img/PySide6/layouts/qstackedlayout1.png" /></p>
 <p><em>QStackedWidget</em> és exactament com funcionen les vistes amb pestanyes a les aplicacions. Només una pestanya és visible alhora. Podeu controlar quin components mostrar en qualsevol moment utilitzant <code>.setCurrentIndex()</code> o <code>.setCurrentWidget()</code> per establir l'element mitjançant l'índex o per la referència al propi component.</p>
@@ -769,7 +809,7 @@ app.exec()
 </code></pre>
 <p>El resultat és la següent aplicació:</p>
 <p><img alt="Exemple QStackedLayout" src="../../../resources/img/PySide6/exemple_stacked_layout.png" /></p>
-<h2 id="qtabwidget">QTabWidget</h2>
+<h3 id="qtabwidget">QTabWidget</h3>
 <p>Qt en realitat proporciona un TabWidget que proporciona aquest tipus de disseny en forma de widget. Vegeu el següent exemple amb QTabWidget:</p>
 <pre><code class="language-python">import sys
 

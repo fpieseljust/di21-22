@@ -215,7 +215,7 @@ app.exec()
 
 ![gridlayout3](../../resources/img/PySide6/layouts/gridlayout3.png)
 
-# QStackedLayout *molts widgets al mateix espai*
+## QStackedLayout
 
 El disseny final que tractarem és el QStackedLayout. Tal com es descriu, aquest disseny us permet col·locar elements directament els uns damunt dels altres (apilats). A continuació, podeu seleccionar quin disseny voleu mostrar. Podeu utilitzar-lo per dibuixar capes en una aplicació gràfica o per imitar una interfície semblant a una pestanya. Tingueu en compte que també hi ha `QStackedWidget`, que és un component de contenidor que funciona exactament de la mateixa manera. Això és útil si voleu afegir una pila de components directament a un *QMainWindow* amb *setCentralWidget*.
 
@@ -297,7 +297,7 @@ El resultat és la següent aplicació:
 
 ![Exemple QStackedLayout](../../resources/img/PySide6/exemple_stacked_layout.png)
 
-## QTabWidget
+### QTabWidget
 
 Qt en realitat proporciona un TabWidget que proporciona aquest tipus de disseny en forma de widget. Vegeu el següent exemple amb QTabWidget:
 
