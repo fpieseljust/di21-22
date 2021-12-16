@@ -22,7 +22,6 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(label)
 
         toolbar = QToolBar("My main toolbar")
-        toolbar.setIconSize(QSize(64, 64))
         self.addToolBar(toolbar)
 
         icon_path = os.path.join(os.path.dirname(__file__), "img/animal-penguin.png")

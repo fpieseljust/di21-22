@@ -2,37 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://fpieseljust.github.io/di21-22/</loc>
-         <lastmod>2021-12-10</lastmod>
+         <lastmod>2021-12-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fpieseljust.github.io/di21-22/about/</loc>
-         <lastmod>2021-12-10</lastmod>
+         <lastmod>2021-12-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fpieseljust.github.io/di21-22/unitats/pyside6/pyside6-intro/</loc>
-         <lastmod>2021-12-10</lastmod>
+         <lastmod>2021-12-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fpieseljust.github.io/di21-22/unitats/pyside6/pyside6-layouts/</loc>
-         <lastmod>2021-12-10</lastmod>
+         <lastmod>2021-12-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://fpieseljust.github.io/di21-22/unitats/pyside6/pyside6-menu-actions/</loc>
+         <lastmod>2021-12-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fpieseljust.github.io/di21-22/unitats/pyside6/pyside6-practica-calculadora/</loc>
-         <lastmod>2021-12-10</lastmod>
+         <lastmod>2021-12-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fpieseljust.github.io/di21-22/unitats/pyside6/pyside6-signals-slots/</loc>
-         <lastmod>2021-12-10</lastmod>
+         <lastmod>2021-12-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fpieseljust.github.io/di21-22/unitats/pyside6/pyside6-widgets/</loc>
-         <lastmod>2021-12-10</lastmod>
+         <lastmod>2021-12-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

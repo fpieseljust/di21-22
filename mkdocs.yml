@@ -10,6 +10,7 @@ nav:
         - Signals - Slots: unitats/pyside6/pyside6-signals-slots.md
         - Widgets: unitats/pyside6/pyside6-widgets.md
         - Layouts: unitats/pyside6/pyside6-layouts.md
+        - Menús, barres de ferramentes i barres d'estat: 'unitats/pyside6/pyside6-menu-actions.md'
         - Pràctica 2: unitats/pyside6/pyside6-practica-calculadora.md
     - About: about.md
 theme:
