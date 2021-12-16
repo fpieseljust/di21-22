@@ -390,6 +390,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#menus" class="md-nav__link">
+    Menús
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -512,6 +519,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menus" class="md-nav__link">
+    Menús
+  </a>
   
 </li>
       
@@ -665,7 +679,13 @@ app.exec()
 </tbody>
 </table>
 <p>El valor predeterminat és Qt.ToolButtonFollowStyle, el que significa que la vostra aplicació seguirà per defecte la configuració estàndard/global per a l'escriptori on s'executa l'aplicació. Això es recomana generalment perquè la vostra aplicació s'integre millor i es senta el més nativa possible.</p>
-<p>Finalment, afegirem un segon botó i un <em>checkbox</em> a la barra de ferramentes. Podeu posar qualsevol component aquí, així que no dubteu a tornar-vos boig.</p>
+<p>Finalment, afegirem un segon botó i un <em>checkbox</em> a la barra de ferramentes. Podeu posar qualsevol component.</p>
+<blockquote>
+<p>Podeu accedir a icones publicades baic CC al següent <a href="http://p.yusukekamiyamane.com/">enllaç</a></p>
+</blockquote>
+<h2 id="menus">Menús</h2>
+<p>Els menús són un altre component estàndard de les interfícies d'usuari. Normalment es troben a la part superior de la finestra o a la part superior d'una pantalla a macOS. Permeten l'accés a totes les funcions estàndard de l'aplicació. Hi ha uns quants menús estàndard, per exemple Fitxer, Edita, Ajuda. Els menús es poden <em>anidar</em> per crear arbres jeràrquics de funcions i sovint admeten i mostren dreceres de teclat per accedir ràpidament a les seves funcions.</p>
+<p>Per crear un menú, creem una barra de menús que anomenem <strong>.menuBar()</strong> a QMainWindow. Afegim un menú a la nostra barra de menús cridant a <strong>.addMenu()</strong>, passant el nom del menú. En este cas l'hem anomenat "&amp;Fitxer". El ampersand defineix una tecla ràpida per mostrar aquest menú en prémer Alt.</p>
                 
               
               

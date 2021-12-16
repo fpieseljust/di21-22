@@ -132,4 +132,12 @@ Podem configurar l'action per a transformar el botó en un polsador. A més, tam
 
 El valor predeterminat és Qt.ToolButtonFollowStyle, el que significa que la vostra aplicació seguirà per defecte la configuració estàndard/global per a l'escriptori on s'executa l'aplicació. Això es recomana generalment perquè la vostra aplicació s'integre millor i es senta el més nativa possible.
 
-Finalment, afegirem un segon botó i un *checkbox* a la barra de ferramentes. Podeu posar qualsevol component aquí, així que no dubteu a tornar-vos boig.
+Finalment, afegirem un segon botó i un *checkbox* a la barra de ferramentes. Podeu posar qualsevol component.
+
+> Podeu accedir a icones publicades baic CC al següent [enllaç](http://p.yusukekamiyamane.com/)
+
+## Menús
+
+Els menús són un altre component estàndard de les interfícies d'usuari. Normalment es troben a la part superior de la finestra o a la part superior d'una pantalla a macOS. Permeten l'accés a totes les funcions estàndard de l'aplicació. Hi ha uns quants menús estàndard, per exemple Fitxer, Edita, Ajuda. Els menús es poden *anidar* per crear arbres jeràrquics de funcions i sovint admeten i mostren dreceres de teclat per accedir ràpidament a les seves funcions.
+
+Per crear un menú, creem una barra de menús que anomenem **.menuBar()** a QMainWindow. Afegim un menú a la nostra barra de menús cridant a **.addMenu()**, passant el nom del menú. En este cas l'hem anomenat "&Fitxer". El ampersand defineix una tecla ràpida per mostrar aquest menú en prémer Alt.
