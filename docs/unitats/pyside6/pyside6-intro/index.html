@@ -124,6 +124,8 @@
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -469,6 +471,87 @@
   
   
     <li class="md-nav__item">
+      <a href="../pyside6-dialogs-alerts/" class="md-nav__link">
+        Dialegs i alertes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Pràctiques i treballs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Pràctiques i treballs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pràctiques i treballs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          PySide6
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PySide6" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          PySide6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../pyside6-practica-calculadora/" class="md-nav__link">
         Pràctica 2
       </a>
@@ -678,48 +761,81 @@
 <p>Nosaltres farem ús de PySide6 durant el present curs.</p>
 <h3 id="installacio-de-pyside6">Instal·lació de PySide6</h3>
 <p>Sempre que desenvolupem, hauriem de fer-ho en un entorn virtual. Recordeu que per crear-lo i activar-lo, utilitzem:</p>
-<pre><code class="language-py">python3 -m venv .venv
-source .venv/bin/activate #Per a Linux i macOS
-
-env\Scripts\activate.bat #Per a Windows
-</code></pre>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Python</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">.</span><span class="n">venv</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">source</span> <span class="o">.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span> <span class="c1">#Per a Linux i macOS</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">env</span>\<span class="n">Scripts</span>\<span class="n">activate</span><span class="o">.</span><span class="n">bat</span> <span class="c1">#Per a Windows</span>
+</code></pre></div>
+</td></tr></table>
 <p>Per a instal·lar PySide6 utilitzem <strong>pip</strong>:</p>
-<pre><code class="language-bash">pip install pyside6
-</code></pre>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Bash</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>pip install pyside6
+</code></pre></div>
+</td></tr></table>
 <h3 id="comprovem-la-installacio">Comprovem la Instal·lació</h3>
 <p>Una vegada instal·lat i amb l'entorn virtual activat, podem executar el següent codi per comprovar que tot funciona.</p>
-<pre><code class="language-py">import PySide6.QtCore
-
-# Prints PySide6 version
-print(PySide6.__version__)
-
-# Prints the Qt version used to compile PySide6
-print(PySide6.QtCore.__version__)
-</code></pre>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Python</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">PySide6.QtCore</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Prints PySide6 version</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">PySide6</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Prints the Qt version used to compile PySide6</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">PySide6</span><span class="o">.</span><span class="n">QtCore</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="primera-aplicacio-amb-pyside6-hola-mon">Primera aplicació amb PySide6 - <em>Hola món!</em></h2>
 <h3 id="exemple-hola-mon-amb-pyside6">Exemple: Hola món! amb PySide6</h3>
-<pre><code class="language-py">from PySide6 import QtWidgets, QtCore
-
-# Sols si necessitem arguments importem sys
-import sys
-
-
-if __name__ == &quot;__main__&quot;:
-    # Necessitem una instància (i sols una) de QApplication per cada aplicació.
-    # Li passem sys.argv per a permetre arguments des de la línia de comandaments
-    # Si no anem a passar arguments podem utilitzar QApplication([])
-    app = QtWidgets.QApplication(sys.argv)
-
-    # Creem un QLabel amb el text Hola món! i aliniament al centre.
-    label = QtWidgets.QLabel(&quot;Hola món!&quot;, alignment=QtCore.Qt.AlignCenter)
-    # Redimensionem el QLabel
-    label.resize(800, 600)
-    #Fem visible el label IMPORTANT!!!!! Els components estan ocults per defecte.
-    label.show()
-
-    # Iniciem el bucle d’esdeveniments.
-    sys.exit(app.exec())
-</code></pre>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Python</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">PySide6</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">QtCore</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Sols si necessitem arguments importem sys</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>    <span class="c1"># Necessitem una instància (i sols una) de QApplication per cada aplicació.</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>    <span class="c1"># Li passem sys.argv per a permetre arguments des de la línia de comandaments</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>    <span class="c1"># Si no anem a passar arguments podem utilitzar QApplication([])</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>    <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>    <span class="c1"># Creem un QLabel amb el text Hola món! i aliniament al centre.</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>    <span class="n">label</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Hola món!&quot;</span><span class="p">,</span> <span class="n">alignment</span><span class="o">=</span><span class="n">QtCore</span><span class="o">.</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>    <span class="c1"># Redimensionem el QLabel</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a>    <span class="n">label</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a>    <span class="c1">#Fem visible el label IMPORTANT!!!!! Els components estan ocults per defecte.</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a>    <span class="n">label</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a>    <span class="c1"># Iniciem el bucle d’esdeveniments.</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">())</span>
+</code></pre></div>
+</td></tr></table>
 <blockquote>
 <p>Si rebeu l'error <em>libOpenGL.so.0: cannot open shared object file: No such file or directory</em>, heu d'instal·lar la llibreria <em>libopengl0</em>.</p>
 <p><code>sudo apt install libopengl0 -y</code></p>
@@ -752,55 +868,92 @@ if __name__ == &quot;__main__&quot;:
 <p><img alt="activitat1" src="../../../resources/img/PySide6/activitat1.png" /></p>
 <h4 id="activitat-2">Activitat 2</h4>
 <p>Modifica el codi de l’anterior activitat per a que es puga passar per línia de comandaments el títol i el text del botó.</p>
-<pre><code class="language-py">python3 activitat2.2.py &quot;APP&quot; &quot;Text&quot;
-</code></pre>
-<p><img alt="activitat2" src="../../../resources/img/PySide6/activitat2.png" /></p>
+<p><table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Python</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">python3</span> <span class="n">activitat2</span><span class="mf">.2</span><span class="o">.</span><span class="n">py</span> <span class="s2">&quot;APP&quot;</span> <span class="s2">&quot;Text&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<img alt="activitat2" src="../../../resources/img/PySide6/activitat2.png" /></p>
 <h2 id="assignem-tamany-a-les-finestres-i-els-components">Assignem tamany a les finestres i els components</h2>
 <p>Amb la funcions <strong>.setFixedSize(amplada, altura)</strong> assignem una mida fixa al component sobre el que l’apliquem. </p>
 <p>Amb <strong>.setMinimumSize(amplada, altura)</strong> i <strong>setMaximumSize(amplada, altura)</strong>, assignem les mides màximes i mínimes, de forma que ni redimensionant amb el ratolí ni amb els botons de maximitzar i minimitzar tindrem la possibilitat d’establir unes dimensions menors o majors de les establides.</p>
-<pre><code class="language-py">import sys
-
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
-
-class MainWindow(QMainWindow):
-    def __init__(self, title=&quot;Title&quot;, button_text=&quot;Text&quot;, fixed=False):
-        super().__init__()
-        self.setWindowTitle(title)
-
-        self.button = QPushButton(button_text)
-
-        self.setCentralWidget(self.button)
-
-        #self.setFixedSize(400,600)
-        self.button.setMaximumSize(100,25)
-        self.setMaximumSize(400,400)
-        self.setMinimumSize(200,200)
-
-        self.button.show()
-        self.show()
-
-app = QApplication(sys.argv)
-
-window = MainWindow()
-
-app.exec()
-
-</code></pre>
-<p>Baixa el codi punxant el següent <a href="../../../resources/code/PySide6/Intro/main_window.py">enllaç</a></p>
+<p><table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Python</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span>
+<span class="normal"><a href="#__codelineno-5-25">25</a></span>
+<span class="normal"><a href="#__codelineno-5-26">26</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QPushButton</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Title&quot;</span><span class="p">,</span> <span class="n">button_text</span><span class="o">=</span><span class="s2">&quot;Text&quot;</span><span class="p">,</span> <span class="n">fixed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="n">button_text</span><span class="p">)</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="p">)</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>        <span class="c1">#self.setFixedSize(400,600)</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">setMaximumSize</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setMaximumSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumSize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a>
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a>
+<a id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="n">window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25"></a>
+<a id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+Baixa el codi punxant el següent <a href="../../../resources/code/PySide6/Intro/main_window.py">enllaç</a></p>
 <h4 id="activitat-3-entregable">Activitat 3 (entregable)</h4>
 <p>Basant-nos en el codi de l'activitat 2, anem a fer una gestió més pràctica i real dels paràmetres d'entrada de l'script. Este és l'aspecte que tindrà l'ajuda de l'execució de l'script. </p>
-<pre><code class="language-bash">usage: finestra3_args.py [-h] [-t TITLE] [-b BUTTON_TEXT] [-f] [-s SIZE SIZE]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -t TITLE, --title TITLE
-                        Title of application
-  -b BUTTON_TEXT, --button-text BUTTON_TEXT
-                        Button text
-  -f, --fixed-size      Window fixed size
-  -s SIZE SIZE, --size SIZE SIZE
-                        Size of windows
-</code></pre>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Bash</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>usage: finestra3_args.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-t TITLE<span class="o">]</span> <span class="o">[</span>-b BUTTON_TEXT<span class="o">]</span> <span class="o">[</span>-f<span class="o">]</span> <span class="o">[</span>-s SIZE SIZE<span class="o">]</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>optional arguments:
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>  -t TITLE, --title TITLE
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>                        Title of application
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>  -b BUTTON_TEXT, --button-text BUTTON_TEXT
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>                        Button text
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>  -f, --fixed-size      Window fixed size
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>  -s SIZE SIZE, --size SIZE SIZE
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>                        Size of windows
+</code></pre></div>
+</td></tr></table>
 <p>Per a fer tota aquesta gestió, busca una llibreria de python que t'ajude.</p>
                 
               
@@ -874,7 +1027,7 @@ optional arguments:
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "search.suggest"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
       <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>

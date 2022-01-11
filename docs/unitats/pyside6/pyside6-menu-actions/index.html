@@ -124,6 +124,8 @@
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -438,6 +440,87 @@
   
   
     <li class="md-nav__item">
+      <a href="../pyside6-dialogs-alerts/" class="md-nav__link">
+        Dialegs i alertes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Pràctiques i treballs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Pràctiques i treballs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pràctiques i treballs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          PySide6
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PySide6" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          PySide6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../pyside6-practica-calculadora/" class="md-nav__link">
         Pràctica 2
       </a>
@@ -607,98 +690,183 @@
 <p>Sense QAction hauríeu de definir-ho en diversos llocs. Però amb QAction podeu definir una única QAction, definint l'acció activada i després afegir aquesta acció tant al menú com a la barra d'eines. Cada QAction té noms, missatges d'estat, icones i senyals als quals us podeu subscriure.</p>
 <p>Al codi següent podeu veure aquesta primera QAction a una barra de ferramentes.</p>
 <h3 id="exemple">Exemple</h3>
-<pre><code class="language-python">import sys
-from PySide6.QtWidgets import (
-    QMainWindow, QApplication,
-    QLabel, QToolBar
-)
-from PySide6.QtGui import QAction
-from PySide6.QtCore import Qt
-
-
-class MainWindow(QMainWindow):
-
-    def __init__(self):
-        super(MainWindow, self).__init__()
-
-        self.setWindowTitle(&quot;My Awesome App&quot;)
-
-        label = QLabel(&quot;Hello!&quot;)
-        label.setAlignment(Qt.AlignCenter)
-
-        self.setCentralWidget(label)
-
-        toolbar = QToolBar(&quot;My main toolbar&quot;)
-        self.addToolBar(toolbar)
-
-        button_action = QAction(&quot;Your button&quot;, self)
-        button_action.triggered.connect(self.onMyToolBarButtonClick)
-        toolbar.addAction(button_action)
-
-
-
-    def onMyToolBarButtonClick(self, s):
-        print(&quot;click&quot;, s)
-
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec()
-</code></pre>
-<p>Baixa el codi <a href="../../../resources/code/PySide6/Actions-Toolbars-Menus/menu1.py">ací</a></p>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Python</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">QLabel</span><span class="p">,</span> <span class="n">QToolBar</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QAction</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="nb">super</span><span class="p">(</span><span class="n">MainWindow</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;My Awesome App&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="n">label</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="n">toolbar</span> <span class="o">=</span> <span class="n">QToolBar</span><span class="p">(</span><span class="s2">&quot;My main toolbar&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">addToolBar</span><span class="p">(</span><span class="n">toolbar</span><span class="p">)</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="n">button_action</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="s2">&quot;Your button&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onMyToolBarButtonClick</span><span class="p">)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action</span><span class="p">)</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="k">def</span> <span class="nf">onMyToolBarButtonClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="n">window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="barra-destat-status-bar">Barra d'estat (<em>status bar</em>)</h2>
 <p>En el següent exemple creem una barra d'estat i l'afegim a la finestra principal. En passar el ratolí per damunt el botó de la barra d'estat, es mostra el text definit a la barra d'estats.</p>
 <h4 id="exemple_1">Exemple</h4>
-<pre><code class="language-python">import sys
-import os
-
-from PySide6.QtWidgets import (
-    QMainWindow, QApplication,
-    QLabel, QToolBar, QStatusBar
-)
-from PySide6.QtGui import QAction, QIcon
-from PySide6.QtCore import Qt, QSize
-
-
-class MainWindow(QMainWindow):
-
-    def __init__(self):
-        super(MainWindow, self).__init__()
-
-        self.setWindowTitle(&quot;My Awesome App&quot;)
-
-        label = QLabel(&quot;Hello!&quot;)
-        label.setAlignment(Qt.AlignCenter)
-
-        self.setCentralWidget(label)
-
-        toolbar = QToolBar(&quot;My main toolbar&quot;)
-        self.addToolBar(toolbar)
-
-        icon_path = os.path.join(os.path.dirname(__file__), &quot;img/animal-penguin.png&quot;)
-
-        button_action = QAction(QIcon(icon_path), &quot;Your button&quot;, self)
-        button_action.setStatusTip(&quot;This is your button&quot;)
-        button_action.triggered.connect(self.onMyToolBarButtonClick)
-        button_action.setCheckable(True)
-        toolbar.addAction(button_action)
-
-        self.setStatusBar(QStatusBar(self))
-
-
-
-    def onMyToolBarButtonClick(self, s):
-        print(&quot;click&quot;, s)
-
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec()
-</code></pre>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Python</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span>
+<span class="normal"><a href="#__codelineno-1-38">38</a></span>
+<span class="normal"><a href="#__codelineno-1-39">39</a></span>
+<span class="normal"><a href="#__codelineno-1-40">40</a></span>
+<span class="normal"><a href="#__codelineno-1-41">41</a></span>
+<span class="normal"><a href="#__codelineno-1-42">42</a></span>
+<span class="normal"><a href="#__codelineno-1-43">43</a></span>
+<span class="normal"><a href="#__codelineno-1-44">44</a></span>
+<span class="normal"><a href="#__codelineno-1-45">45</a></span>
+<span class="normal"><a href="#__codelineno-1-46">46</a></span>
+<span class="normal"><a href="#__codelineno-1-47">47</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span class="n">QLabel</span><span class="p">,</span> <span class="n">QToolBar</span><span class="p">,</span> <span class="n">QStatusBar</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QIcon</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span><span class="p">,</span> <span class="n">QSize</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>        <span class="nb">super</span><span class="p">(</span><span class="n">MainWindow</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;My Awesome App&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>        <span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>        <span class="n">label</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>        <span class="n">toolbar</span> <span class="o">=</span> <span class="n">QToolBar</span><span class="p">(</span><span class="s2">&quot;My main toolbar&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">addToolBar</span><span class="p">(</span><span class="n">toolbar</span><span class="p">)</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>        <span class="n">icon_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;img/animal-penguin.png&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a>        <span class="n">button_action</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">icon_path</span><span class="p">),</span> <span class="s2">&quot;Your button&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s2">&quot;This is your button&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onMyToolBarButtonClick</span><span class="p">)</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action</span><span class="p">)</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a>
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setStatusBar</span><span class="p">(</span><span class="n">QStatusBar</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a>    <span class="k">def</span> <span class="nf">onMyToolBarButtonClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="n">window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a><span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a>
+<a id="__codelineno-1-47" name="__codelineno-1-47"></a><span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
 <p>Podem configurar l'action per a transformar el botó en un polsador. A més, també podem afegir una icona i configurar la posició del text que acompanya a aquesta icona segons els valors de la taula següents:</p>
 <table>
 <thead>
@@ -742,212 +910,408 @@ app.exec()
 <p>Això no serà visible a macOS. Tingueu en compte que no estem definint una drecera de teclat.</p>
 </blockquote>
 <p>Ací és on entra en joc el poder de les accions. Podem reutilitzar el QAction ja existent per afegir la mateixa funció al menú. Per afegir una acció, cridem a <strong>.addAction()</strong> passant en una de les nostres accions definides.</p>
-<pre><code class="language-python">import sys
-import os
-
-from PySide6.QtCore import QSize, Qt
-from PySide6.QtGui import QAction, QIcon
-from PySide6.QtWidgets import (
-    QApplication,
-    QCheckBox,
-    QLabel,
-    QMainWindow,
-    QStatusBar,
-    QToolBar,
-)
-
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-
-        self.setWindowTitle(&quot;My App&quot;)
-
-        label = QLabel(&quot;Hello!&quot;)
-        label.setAlignment(Qt.AlignCenter)
-
-        self.setCentralWidget(label)
-
-        toolbar = QToolBar(&quot;My main toolbar&quot;)
-        toolbar.setIconSize(QSize(16, 16))
-        self.addToolBar(toolbar)
-
-        icon_path = os.path.join(os.path.dirname(__file__), &quot;img/animal-penguin.png&quot;)
-
-        button_action = QAction(QIcon(icon_path), &quot;&amp;Your button&quot;, self)
-        button_action.setStatusTip(&quot;This is your button&quot;)
-        button_action.triggered.connect(self.onMyToolBarButtonClick)
-        button_action.setCheckable(True)
-        toolbar.addAction(button_action)
-
-        toolbar.addSeparator()
-
-        button_action2 = QAction(QIcon(icon_path), &quot;Your &amp;button2&quot;, self)
-        button_action2.setStatusTip(&quot;This is your button2&quot;)
-        button_action2.triggered.connect(self.onMyToolBarButtonClick)
-        button_action2.setCheckable(True)
-        toolbar.addAction(button_action2)
-
-        toolbar.addWidget(QLabel(&quot;Hello&quot;))
-        toolbar.addWidget(QCheckBox())
-
-        self.setStatusBar(QStatusBar(self))
-
-        menu = self.menuBar()
-
-        file_menu = menu.addMenu(&quot;&amp;File&quot;)
-        file_menu.addAction(button_action)
-
-    def onMyToolBarButtonClick(self, s):
-        print(&quot;click&quot;, s)
-
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec()
-</code></pre>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Python</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span>
+<span class="normal"><a href="#__codelineno-2-27">27</a></span>
+<span class="normal"><a href="#__codelineno-2-28">28</a></span>
+<span class="normal"><a href="#__codelineno-2-29">29</a></span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span>
+<span class="normal"><a href="#__codelineno-2-31">31</a></span>
+<span class="normal"><a href="#__codelineno-2-32">32</a></span>
+<span class="normal"><a href="#__codelineno-2-33">33</a></span>
+<span class="normal"><a href="#__codelineno-2-34">34</a></span>
+<span class="normal"><a href="#__codelineno-2-35">35</a></span>
+<span class="normal"><a href="#__codelineno-2-36">36</a></span>
+<span class="normal"><a href="#__codelineno-2-37">37</a></span>
+<span class="normal"><a href="#__codelineno-2-38">38</a></span>
+<span class="normal"><a href="#__codelineno-2-39">39</a></span>
+<span class="normal"><a href="#__codelineno-2-40">40</a></span>
+<span class="normal"><a href="#__codelineno-2-41">41</a></span>
+<span class="normal"><a href="#__codelineno-2-42">42</a></span>
+<span class="normal"><a href="#__codelineno-2-43">43</a></span>
+<span class="normal"><a href="#__codelineno-2-44">44</a></span>
+<span class="normal"><a href="#__codelineno-2-45">45</a></span>
+<span class="normal"><a href="#__codelineno-2-46">46</a></span>
+<span class="normal"><a href="#__codelineno-2-47">47</a></span>
+<span class="normal"><a href="#__codelineno-2-48">48</a></span>
+<span class="normal"><a href="#__codelineno-2-49">49</a></span>
+<span class="normal"><a href="#__codelineno-2-50">50</a></span>
+<span class="normal"><a href="#__codelineno-2-51">51</a></span>
+<span class="normal"><a href="#__codelineno-2-52">52</a></span>
+<span class="normal"><a href="#__codelineno-2-53">53</a></span>
+<span class="normal"><a href="#__codelineno-2-54">54</a></span>
+<span class="normal"><a href="#__codelineno-2-55">55</a></span>
+<span class="normal"><a href="#__codelineno-2-56">56</a></span>
+<span class="normal"><a href="#__codelineno-2-57">57</a></span>
+<span class="normal"><a href="#__codelineno-2-58">58</a></span>
+<span class="normal"><a href="#__codelineno-2-59">59</a></span>
+<span class="normal"><a href="#__codelineno-2-60">60</a></span>
+<span class="normal"><a href="#__codelineno-2-61">61</a></span>
+<span class="normal"><a href="#__codelineno-2-62">62</a></span>
+<span class="normal"><a href="#__codelineno-2-63">63</a></span>
+<span class="normal"><a href="#__codelineno-2-64">64</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">QSize</span><span class="p">,</span> <span class="n">Qt</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QIcon</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="n">QApplication</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>    <span class="n">QCheckBox</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span class="n">QLabel</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>    <span class="n">QMainWindow</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>    <span class="n">QStatusBar</span><span class="p">,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>    <span class="n">QToolBar</span><span class="p">,</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="p">)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;My App&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a>        <span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a>        <span class="n">label</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a>        <span class="n">toolbar</span> <span class="o">=</span> <span class="n">QToolBar</span><span class="p">(</span><span class="s2">&quot;My main toolbar&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">setIconSize</span><span class="p">(</span><span class="n">QSize</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">addToolBar</span><span class="p">(</span><span class="n">toolbar</span><span class="p">)</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a>        <span class="n">icon_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;img/animal-penguin.png&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a>
+<a id="__codelineno-2-32" name="__codelineno-2-32"></a>        <span class="n">button_action</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">icon_path</span><span class="p">),</span> <span class="s2">&quot;&amp;Your button&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s2">&quot;This is your button&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onMyToolBarButtonClick</span><span class="p">)</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action</span><span class="p">)</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37"></a>
+<a id="__codelineno-2-38" name="__codelineno-2-38"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addSeparator</span><span class="p">()</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39"></a>
+<a id="__codelineno-2-40" name="__codelineno-2-40"></a>        <span class="n">button_action2</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">icon_path</span><span class="p">),</span> <span class="s2">&quot;Your &amp;button2&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41"></a>        <span class="n">button_action2</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s2">&quot;This is your button2&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42"></a>        <span class="n">button_action2</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onMyToolBarButtonClick</span><span class="p">)</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43"></a>        <span class="n">button_action2</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action2</span><span class="p">)</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45"></a>
+<a id="__codelineno-2-46" name="__codelineno-2-46"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">))</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">QCheckBox</span><span class="p">())</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48"></a>
+<a id="__codelineno-2-49" name="__codelineno-2-49"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setStatusBar</span><span class="p">(</span><span class="n">QStatusBar</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+<a id="__codelineno-2-50" name="__codelineno-2-50"></a>
+<a id="__codelineno-2-51" name="__codelineno-2-51"></a>        <span class="n">menu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">menuBar</span><span class="p">()</span>
+<a id="__codelineno-2-52" name="__codelineno-2-52"></a>
+<a id="__codelineno-2-53" name="__codelineno-2-53"></a>        <span class="n">file_menu</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s2">&quot;&amp;File&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-54" name="__codelineno-2-54"></a>        <span class="n">file_menu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action</span><span class="p">)</span>
+<a id="__codelineno-2-55" name="__codelineno-2-55"></a>
+<a id="__codelineno-2-56" name="__codelineno-2-56"></a>    <span class="k">def</span> <span class="nf">onMyToolBarButtonClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<a id="__codelineno-2-57" name="__codelineno-2-57"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-2-58" name="__codelineno-2-58"></a>
+<a id="__codelineno-2-59" name="__codelineno-2-59"></a><span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<a id="__codelineno-2-60" name="__codelineno-2-60"></a>
+<a id="__codelineno-2-61" name="__codelineno-2-61"></a><span class="n">window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<a id="__codelineno-2-62" name="__codelineno-2-62"></a><span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-2-63" name="__codelineno-2-63"></a>
+<a id="__codelineno-2-64" name="__codelineno-2-64"></a><span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
 <blockquote>
 <p>Feu clic a l'element del menú i notareu que es pot alternar com un polsador: hereta les característiques de QAction.</p>
 </blockquote>
 <p>En este segon exemple, afegim algunes coses més al menú. Afegirem un separador al menú, que apareixerà com una línia horitzontal al menú, i després afegirem la segona QAction que hem creat.</p>
-<pre><code class="language-python">import sys
-import os
-
-from PySide6.QtCore import QSize, Qt
-from PySide6.QtGui import QAction, QIcon
-from PySide6.QtWidgets import (
-    QApplication,
-    QCheckBox,
-    QLabel,
-    QMainWindow,
-    QStatusBar,
-    QToolBar,
-)
-
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-
-        self.setWindowTitle(&quot;My App&quot;)
-
-        label = QLabel(&quot;Hello!&quot;)
-        label.setAlignment(Qt.AlignCenter)
-
-        self.setCentralWidget(label)
-
-        toolbar = QToolBar(&quot;My main toolbar&quot;)
-        toolbar.setIconSize(QSize(16, 16))
-        self.addToolBar(toolbar)
-
-        icon_path = os.path.join(os.path.dirname(__file__), &quot;img/animal-penguin.png&quot;)
-
-        button_action = QAction(QIcon(icon_path), &quot;&amp;Your button&quot;, self)
-        button_action.setStatusTip(&quot;This is your button&quot;)
-        button_action.triggered.connect(self.onMyToolBarButtonClick)
-        button_action.setCheckable(True)
-        toolbar.addAction(button_action)
-
-        toolbar.addSeparator()
-
-        button_action2 = QAction(QIcon(icon_path), &quot;Your &amp;button2&quot;, self)
-        button_action2.setStatusTip(&quot;This is your button2&quot;)
-        button_action2.triggered.connect(self.onMyToolBarButtonClick)
-        button_action2.setCheckable(True)
-        toolbar.addAction(button_action2)
-
-        toolbar.addWidget(QLabel(&quot;Hello&quot;))
-        toolbar.addWidget(QCheckBox())
-
-        self.setStatusBar(QStatusBar(self))
-
-        menu = self.menuBar()
-
-        file_menu = menu.addMenu(&quot;&amp;File&quot;)
-        file_menu.addAction(button_action)
-        file_menu.addSeparator()
-        file_menu.addAction(button_action2)
-
-    def onMyToolBarButtonClick(self, s):
-        print(&quot;click&quot;, s)
-
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec()
-</code></pre>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Python</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span>
+<span class="normal"><a href="#__codelineno-3-28">28</a></span>
+<span class="normal"><a href="#__codelineno-3-29">29</a></span>
+<span class="normal"><a href="#__codelineno-3-30">30</a></span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span>
+<span class="normal"><a href="#__codelineno-3-32">32</a></span>
+<span class="normal"><a href="#__codelineno-3-33">33</a></span>
+<span class="normal"><a href="#__codelineno-3-34">34</a></span>
+<span class="normal"><a href="#__codelineno-3-35">35</a></span>
+<span class="normal"><a href="#__codelineno-3-36">36</a></span>
+<span class="normal"><a href="#__codelineno-3-37">37</a></span>
+<span class="normal"><a href="#__codelineno-3-38">38</a></span>
+<span class="normal"><a href="#__codelineno-3-39">39</a></span>
+<span class="normal"><a href="#__codelineno-3-40">40</a></span>
+<span class="normal"><a href="#__codelineno-3-41">41</a></span>
+<span class="normal"><a href="#__codelineno-3-42">42</a></span>
+<span class="normal"><a href="#__codelineno-3-43">43</a></span>
+<span class="normal"><a href="#__codelineno-3-44">44</a></span>
+<span class="normal"><a href="#__codelineno-3-45">45</a></span>
+<span class="normal"><a href="#__codelineno-3-46">46</a></span>
+<span class="normal"><a href="#__codelineno-3-47">47</a></span>
+<span class="normal"><a href="#__codelineno-3-48">48</a></span>
+<span class="normal"><a href="#__codelineno-3-49">49</a></span>
+<span class="normal"><a href="#__codelineno-3-50">50</a></span>
+<span class="normal"><a href="#__codelineno-3-51">51</a></span>
+<span class="normal"><a href="#__codelineno-3-52">52</a></span>
+<span class="normal"><a href="#__codelineno-3-53">53</a></span>
+<span class="normal"><a href="#__codelineno-3-54">54</a></span>
+<span class="normal"><a href="#__codelineno-3-55">55</a></span>
+<span class="normal"><a href="#__codelineno-3-56">56</a></span>
+<span class="normal"><a href="#__codelineno-3-57">57</a></span>
+<span class="normal"><a href="#__codelineno-3-58">58</a></span>
+<span class="normal"><a href="#__codelineno-3-59">59</a></span>
+<span class="normal"><a href="#__codelineno-3-60">60</a></span>
+<span class="normal"><a href="#__codelineno-3-61">61</a></span>
+<span class="normal"><a href="#__codelineno-3-62">62</a></span>
+<span class="normal"><a href="#__codelineno-3-63">63</a></span>
+<span class="normal"><a href="#__codelineno-3-64">64</a></span>
+<span class="normal"><a href="#__codelineno-3-65">65</a></span>
+<span class="normal"><a href="#__codelineno-3-66">66</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">QSize</span><span class="p">,</span> <span class="n">Qt</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QIcon</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span class="n">QApplication</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>    <span class="n">QCheckBox</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>    <span class="n">QLabel</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>    <span class="n">QMainWindow</span><span class="p">,</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>    <span class="n">QStatusBar</span><span class="p">,</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>    <span class="n">QToolBar</span><span class="p">,</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="p">)</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;My App&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a>        <span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a>        <span class="n">label</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a>        <span class="n">toolbar</span> <span class="o">=</span> <span class="n">QToolBar</span><span class="p">(</span><span class="s2">&quot;My main toolbar&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">setIconSize</span><span class="p">(</span><span class="n">QSize</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">addToolBar</span><span class="p">(</span><span class="n">toolbar</span><span class="p">)</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a>        <span class="n">icon_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;img/animal-penguin.png&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a>        <span class="n">button_action</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">icon_path</span><span class="p">),</span> <span class="s2">&quot;&amp;Your button&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s2">&quot;This is your button&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onMyToolBarButtonClick</span><span class="p">)</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action</span><span class="p">)</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37"></a>
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addSeparator</span><span class="p">()</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39"></a>
+<a id="__codelineno-3-40" name="__codelineno-3-40"></a>        <span class="n">button_action2</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">icon_path</span><span class="p">),</span> <span class="s2">&quot;Your &amp;button2&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41"></a>        <span class="n">button_action2</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s2">&quot;This is your button2&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42"></a>        <span class="n">button_action2</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onMyToolBarButtonClick</span><span class="p">)</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43"></a>        <span class="n">button_action2</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action2</span><span class="p">)</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45"></a>
+<a id="__codelineno-3-46" name="__codelineno-3-46"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">))</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">QCheckBox</span><span class="p">())</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48"></a>
+<a id="__codelineno-3-49" name="__codelineno-3-49"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setStatusBar</span><span class="p">(</span><span class="n">QStatusBar</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50"></a>
+<a id="__codelineno-3-51" name="__codelineno-3-51"></a>        <span class="n">menu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">menuBar</span><span class="p">()</span>
+<a id="__codelineno-3-52" name="__codelineno-3-52"></a>
+<a id="__codelineno-3-53" name="__codelineno-3-53"></a>        <span class="n">file_menu</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s2">&quot;&amp;File&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54"></a>        <span class="n">file_menu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action</span><span class="p">)</span>
+<a id="__codelineno-3-55" name="__codelineno-3-55"></a>        <span class="n">file_menu</span><span class="o">.</span><span class="n">addSeparator</span><span class="p">()</span>
+<a id="__codelineno-3-56" name="__codelineno-3-56"></a>        <span class="n">file_menu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action2</span><span class="p">)</span>
+<a id="__codelineno-3-57" name="__codelineno-3-57"></a>
+<a id="__codelineno-3-58" name="__codelineno-3-58"></a>    <span class="k">def</span> <span class="nf">onMyToolBarButtonClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<a id="__codelineno-3-59" name="__codelineno-3-59"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-3-60" name="__codelineno-3-60"></a>
+<a id="__codelineno-3-61" name="__codelineno-3-61"></a><span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<a id="__codelineno-3-62" name="__codelineno-3-62"></a>
+<a id="__codelineno-3-63" name="__codelineno-3-63"></a><span class="n">window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<a id="__codelineno-3-64" name="__codelineno-3-64"></a><span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-3-65" name="__codelineno-3-65"></a>
+<a id="__codelineno-3-66" name="__codelineno-3-66"></a><span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
 <p>També podeu fer servir un <em>ampersand</em> per afegir <strong>tecles d'acceleració</strong> al menú per permetre que una sola tecla s'utilitzi per anar a un element del menú <strong>quan estiga obert</strong>. De nou, això no funciona a macOS.</p>
 <p>Per afegir un submenú, només cal que creeu un nou menú cridant a <strong>addMenu()</strong> al menú principal. A continuació, podeu afegir accions amb normalitat. </p>
 <p><img alt="Submenu" src="../../../resources/img/PySide6/action/submenu.png" /></p>
-<pre><code class="language-python">import sys
-import os
-
-from PySide6.QtCore import QSize, Qt
-from PySide6.QtGui import QAction, QIcon
-from PySide6.QtWidgets import (
-    QApplication,
-    QCheckBox,
-    QLabel,
-    QMainWindow,
-    QStatusBar,
-    QToolBar,
-)
-
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-
-        self.setWindowTitle(&quot;My App&quot;)
-
-        label = QLabel(&quot;Hello!&quot;)
-        label.setAlignment(Qt.AlignCenter)
-
-        self.setCentralWidget(label)
-
-        toolbar = QToolBar(&quot;My main toolbar&quot;)
-        toolbar.setIconSize(QSize(16, 16))
-        self.addToolBar(toolbar)
-
-        icon_path = os.path.join(os.path.dirname(__file__), &quot;img/animal-penguin.png&quot;)
-
-        button_action = QAction(QIcon(icon_path), &quot;&amp;Your button&quot;, self)
-        button_action.setStatusTip(&quot;This is your button&quot;)
-        button_action.triggered.connect(self.onMyToolBarButtonClick)
-        button_action.setCheckable(True)
-        toolbar.addAction(button_action)
-
-        toolbar.addSeparator()
-
-        button_action2 = QAction(QIcon(icon_path), &quot;Your &amp;button2&quot;, self)
-        button_action2.setStatusTip(&quot;This is your button2&quot;)
-        button_action2.triggered.connect(self.onMyToolBarButtonClick)
-        button_action2.setCheckable(True)
-        toolbar.addAction(button_action2)
-
-        toolbar.addWidget(QLabel(&quot;Hello&quot;))
-        toolbar.addWidget(QCheckBox())
-
-        self.setStatusBar(QStatusBar(self))
-
-        menu = self.menuBar()
-
-        file_menu = menu.addMenu(&quot;&amp;File&quot;)
-        file_menu.addAction(button_action)
-        file_menu.addSeparator()
-        file_menu.addAction(button_action2)
-
-    def onMyToolBarButtonClick(self, s):
-        print(&quot;click&quot;, s)
-
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec()
-</code></pre>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Python</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span>
+<span class="normal"><a href="#__codelineno-4-23">23</a></span>
+<span class="normal"><a href="#__codelineno-4-24">24</a></span>
+<span class="normal"><a href="#__codelineno-4-25">25</a></span>
+<span class="normal"><a href="#__codelineno-4-26">26</a></span>
+<span class="normal"><a href="#__codelineno-4-27">27</a></span>
+<span class="normal"><a href="#__codelineno-4-28">28</a></span>
+<span class="normal"><a href="#__codelineno-4-29">29</a></span>
+<span class="normal"><a href="#__codelineno-4-30">30</a></span>
+<span class="normal"><a href="#__codelineno-4-31">31</a></span>
+<span class="normal"><a href="#__codelineno-4-32">32</a></span>
+<span class="normal"><a href="#__codelineno-4-33">33</a></span>
+<span class="normal"><a href="#__codelineno-4-34">34</a></span>
+<span class="normal"><a href="#__codelineno-4-35">35</a></span>
+<span class="normal"><a href="#__codelineno-4-36">36</a></span>
+<span class="normal"><a href="#__codelineno-4-37">37</a></span>
+<span class="normal"><a href="#__codelineno-4-38">38</a></span>
+<span class="normal"><a href="#__codelineno-4-39">39</a></span>
+<span class="normal"><a href="#__codelineno-4-40">40</a></span>
+<span class="normal"><a href="#__codelineno-4-41">41</a></span>
+<span class="normal"><a href="#__codelineno-4-42">42</a></span>
+<span class="normal"><a href="#__codelineno-4-43">43</a></span>
+<span class="normal"><a href="#__codelineno-4-44">44</a></span>
+<span class="normal"><a href="#__codelineno-4-45">45</a></span>
+<span class="normal"><a href="#__codelineno-4-46">46</a></span>
+<span class="normal"><a href="#__codelineno-4-47">47</a></span>
+<span class="normal"><a href="#__codelineno-4-48">48</a></span>
+<span class="normal"><a href="#__codelineno-4-49">49</a></span>
+<span class="normal"><a href="#__codelineno-4-50">50</a></span>
+<span class="normal"><a href="#__codelineno-4-51">51</a></span>
+<span class="normal"><a href="#__codelineno-4-52">52</a></span>
+<span class="normal"><a href="#__codelineno-4-53">53</a></span>
+<span class="normal"><a href="#__codelineno-4-54">54</a></span>
+<span class="normal"><a href="#__codelineno-4-55">55</a></span>
+<span class="normal"><a href="#__codelineno-4-56">56</a></span>
+<span class="normal"><a href="#__codelineno-4-57">57</a></span>
+<span class="normal"><a href="#__codelineno-4-58">58</a></span>
+<span class="normal"><a href="#__codelineno-4-59">59</a></span>
+<span class="normal"><a href="#__codelineno-4-60">60</a></span>
+<span class="normal"><a href="#__codelineno-4-61">61</a></span>
+<span class="normal"><a href="#__codelineno-4-62">62</a></span>
+<span class="normal"><a href="#__codelineno-4-63">63</a></span>
+<span class="normal"><a href="#__codelineno-4-64">64</a></span>
+<span class="normal"><a href="#__codelineno-4-65">65</a></span>
+<span class="normal"><a href="#__codelineno-4-66">66</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">QSize</span><span class="p">,</span> <span class="n">Qt</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QIcon</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="n">QApplication</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="n">QCheckBox</span><span class="p">,</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>    <span class="n">QLabel</span><span class="p">,</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="n">QMainWindow</span><span class="p">,</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>    <span class="n">QStatusBar</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>    <span class="n">QToolBar</span><span class="p">,</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="p">)</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;My App&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a>        <span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a>        <span class="n">label</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25"></a>
+<a id="__codelineno-4-26" name="__codelineno-4-26"></a>        <span class="n">toolbar</span> <span class="o">=</span> <span class="n">QToolBar</span><span class="p">(</span><span class="s2">&quot;My main toolbar&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">setIconSize</span><span class="p">(</span><span class="n">QSize</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">addToolBar</span><span class="p">(</span><span class="n">toolbar</span><span class="p">)</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29"></a>
+<a id="__codelineno-4-30" name="__codelineno-4-30"></a>        <span class="n">icon_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;img/animal-penguin.png&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31"></a>
+<a id="__codelineno-4-32" name="__codelineno-4-32"></a>        <span class="n">button_action</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">icon_path</span><span class="p">),</span> <span class="s2">&quot;&amp;Your button&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s2">&quot;This is your button&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onMyToolBarButtonClick</span><span class="p">)</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action</span><span class="p">)</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37"></a>
+<a id="__codelineno-4-38" name="__codelineno-4-38"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addSeparator</span><span class="p">()</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39"></a>
+<a id="__codelineno-4-40" name="__codelineno-4-40"></a>        <span class="n">button_action2</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">icon_path</span><span class="p">),</span> <span class="s2">&quot;Your &amp;button2&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41"></a>        <span class="n">button_action2</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s2">&quot;This is your button2&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42"></a>        <span class="n">button_action2</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onMyToolBarButtonClick</span><span class="p">)</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43"></a>        <span class="n">button_action2</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action2</span><span class="p">)</span>
+<a id="__codelineno-4-45" name="__codelineno-4-45"></a>
+<a id="__codelineno-4-46" name="__codelineno-4-46"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">))</span>
+<a id="__codelineno-4-47" name="__codelineno-4-47"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">QCheckBox</span><span class="p">())</span>
+<a id="__codelineno-4-48" name="__codelineno-4-48"></a>
+<a id="__codelineno-4-49" name="__codelineno-4-49"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setStatusBar</span><span class="p">(</span><span class="n">QStatusBar</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+<a id="__codelineno-4-50" name="__codelineno-4-50"></a>
+<a id="__codelineno-4-51" name="__codelineno-4-51"></a>        <span class="n">menu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">menuBar</span><span class="p">()</span>
+<a id="__codelineno-4-52" name="__codelineno-4-52"></a>
+<a id="__codelineno-4-53" name="__codelineno-4-53"></a>        <span class="n">file_menu</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s2">&quot;&amp;File&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-54" name="__codelineno-4-54"></a>        <span class="n">file_menu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action</span><span class="p">)</span>
+<a id="__codelineno-4-55" name="__codelineno-4-55"></a>        <span class="n">file_menu</span><span class="o">.</span><span class="n">addSeparator</span><span class="p">()</span>
+<a id="__codelineno-4-56" name="__codelineno-4-56"></a>        <span class="n">file_menu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action2</span><span class="p">)</span>
+<a id="__codelineno-4-57" name="__codelineno-4-57"></a>
+<a id="__codelineno-4-58" name="__codelineno-4-58"></a>    <span class="k">def</span> <span class="nf">onMyToolBarButtonClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<a id="__codelineno-4-59" name="__codelineno-4-59"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-4-60" name="__codelineno-4-60"></a>
+<a id="__codelineno-4-61" name="__codelineno-4-61"></a><span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<a id="__codelineno-4-62" name="__codelineno-4-62"></a>
+<a id="__codelineno-4-63" name="__codelineno-4-63"></a><span class="n">window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<a id="__codelineno-4-64" name="__codelineno-4-64"></a><span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-4-65" name="__codelineno-4-65"></a>
+<a id="__codelineno-4-66" name="__codelineno-4-66"></a><span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
 <h3 id="dreceres-de-teclat">Dreceres de teclat</h3>
 <p>Finalment afegirem una drecera de teclat a QAction. Definim una drecera de teclat passant <strong>setKeySequence()</strong> i passant la seqüència de tecles. Qualsevol seqüència de tecles definida apareixerà al menú.</p>
 <blockquote>
@@ -955,86 +1319,165 @@ app.exec()
 </blockquote>
 <p>Les dreceres de teclat es poden definir de diverses maneres, ja sigui passant com a text, utilitzant noms de tecles o utilitzant les seqüències de tecles definides. Utilitzeu aquest últim sempre que pugueu per garantir el compliment dels estàndards del sistema operatiu.</p>
 <h4 id="exemple_2">Exemple</h4>
-<pre><code class="language-python">import sys
-import os
-
-from PySide6.QtCore import QSize, Qt
-from PySide6.QtGui import QAction, QIcon, QKeySequence
-from PySide6.QtWidgets import (
-    QApplication,
-    QCheckBox,
-    QLabel,
-    QMainWindow,
-    QStatusBar,
-    QToolBar,
-)
-
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-
-        self.setWindowTitle(&quot;My App&quot;)
-
-        label = QLabel(&quot;Hello!&quot;)
-
-        # The `Qt` namespace has a lot of attributes to customize
-        # widgets. See: http://doc.qt.io/qt-5/qt.html
-        label.setAlignment(Qt.AlignCenter)
-
-        # Set the central widget of the Window. Widget will expand
-        # to take up all the space in the window by default.
-        self.setCentralWidget(label)
-
-        toolbar = QToolBar(&quot;My main toolbar&quot;)
-        toolbar.setIconSize(QSize(16, 16))
-        self.addToolBar(toolbar)
-
-        icon_path = os.path.join(os.path.dirname(__file__), &quot;img/animal-penguin.png&quot;)
-
-        button_action = QAction(QIcon(icon_path), &quot;&amp;Your button&quot;, self)
-        button_action.setStatusTip(&quot;This is your button&quot;)
-        button_action.triggered.connect(self.onMyToolBarButtonClick)
-        button_action.setCheckable(True)
-        # You can enter keyboard shortcuts using key names (e.g. Ctrl+p)
-        # Qt.namespace identifiers (e.g. Qt.CTRL + Qt.Key_P)
-        # or system agnostic identifiers (e.g. QKeySequence.Print)
-        button_action.setShortcut(QKeySequence(&quot;Ctrl+p&quot;))
-        toolbar.addAction(button_action)
-
-        toolbar.addSeparator()
-
-        button_action2 = QAction(QIcon(icon_path), &quot;Your &amp;button2&quot;, self)
-        button_action2.setStatusTip(&quot;This is your button2&quot;)
-        button_action2.triggered.connect(self.onMyToolBarButtonClick)
-        button_action2.setCheckable(True)
-        toolbar.addAction(button_action2)
-
-        toolbar.addWidget(QLabel(&quot;Hello&quot;))
-        toolbar.addWidget(QCheckBox())
-
-        self.setStatusBar(QStatusBar(self))
-
-        menu = self.menuBar()
-
-        file_menu = menu.addMenu(&quot;&amp;File&quot;)
-        file_menu.addAction(button_action)
-
-        file_menu.addSeparator()
-
-        file_submenu = file_menu.addMenu(&quot;Submenu&quot;)
-
-        file_submenu.addAction(button_action2)
-
-    def onMyToolBarButtonClick(self, s):
-        print(&quot;click&quot;, s)
-
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec()
-</code></pre>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Python</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span>
+<span class="normal"><a href="#__codelineno-5-25">25</a></span>
+<span class="normal"><a href="#__codelineno-5-26">26</a></span>
+<span class="normal"><a href="#__codelineno-5-27">27</a></span>
+<span class="normal"><a href="#__codelineno-5-28">28</a></span>
+<span class="normal"><a href="#__codelineno-5-29">29</a></span>
+<span class="normal"><a href="#__codelineno-5-30">30</a></span>
+<span class="normal"><a href="#__codelineno-5-31">31</a></span>
+<span class="normal"><a href="#__codelineno-5-32">32</a></span>
+<span class="normal"><a href="#__codelineno-5-33">33</a></span>
+<span class="normal"><a href="#__codelineno-5-34">34</a></span>
+<span class="normal"><a href="#__codelineno-5-35">35</a></span>
+<span class="normal"><a href="#__codelineno-5-36">36</a></span>
+<span class="normal"><a href="#__codelineno-5-37">37</a></span>
+<span class="normal"><a href="#__codelineno-5-38">38</a></span>
+<span class="normal"><a href="#__codelineno-5-39">39</a></span>
+<span class="normal"><a href="#__codelineno-5-40">40</a></span>
+<span class="normal"><a href="#__codelineno-5-41">41</a></span>
+<span class="normal"><a href="#__codelineno-5-42">42</a></span>
+<span class="normal"><a href="#__codelineno-5-43">43</a></span>
+<span class="normal"><a href="#__codelineno-5-44">44</a></span>
+<span class="normal"><a href="#__codelineno-5-45">45</a></span>
+<span class="normal"><a href="#__codelineno-5-46">46</a></span>
+<span class="normal"><a href="#__codelineno-5-47">47</a></span>
+<span class="normal"><a href="#__codelineno-5-48">48</a></span>
+<span class="normal"><a href="#__codelineno-5-49">49</a></span>
+<span class="normal"><a href="#__codelineno-5-50">50</a></span>
+<span class="normal"><a href="#__codelineno-5-51">51</a></span>
+<span class="normal"><a href="#__codelineno-5-52">52</a></span>
+<span class="normal"><a href="#__codelineno-5-53">53</a></span>
+<span class="normal"><a href="#__codelineno-5-54">54</a></span>
+<span class="normal"><a href="#__codelineno-5-55">55</a></span>
+<span class="normal"><a href="#__codelineno-5-56">56</a></span>
+<span class="normal"><a href="#__codelineno-5-57">57</a></span>
+<span class="normal"><a href="#__codelineno-5-58">58</a></span>
+<span class="normal"><a href="#__codelineno-5-59">59</a></span>
+<span class="normal"><a href="#__codelineno-5-60">60</a></span>
+<span class="normal"><a href="#__codelineno-5-61">61</a></span>
+<span class="normal"><a href="#__codelineno-5-62">62</a></span>
+<span class="normal"><a href="#__codelineno-5-63">63</a></span>
+<span class="normal"><a href="#__codelineno-5-64">64</a></span>
+<span class="normal"><a href="#__codelineno-5-65">65</a></span>
+<span class="normal"><a href="#__codelineno-5-66">66</a></span>
+<span class="normal"><a href="#__codelineno-5-67">67</a></span>
+<span class="normal"><a href="#__codelineno-5-68">68</a></span>
+<span class="normal"><a href="#__codelineno-5-69">69</a></span>
+<span class="normal"><a href="#__codelineno-5-70">70</a></span>
+<span class="normal"><a href="#__codelineno-5-71">71</a></span>
+<span class="normal"><a href="#__codelineno-5-72">72</a></span>
+<span class="normal"><a href="#__codelineno-5-73">73</a></span>
+<span class="normal"><a href="#__codelineno-5-74">74</a></span>
+<span class="normal"><a href="#__codelineno-5-75">75</a></span>
+<span class="normal"><a href="#__codelineno-5-76">76</a></span>
+<span class="normal"><a href="#__codelineno-5-77">77</a></span>
+<span class="normal"><a href="#__codelineno-5-78">78</a></span>
+<span class="normal"><a href="#__codelineno-5-79">79</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">QSize</span><span class="p">,</span> <span class="n">Qt</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QIcon</span><span class="p">,</span> <span class="n">QKeySequence</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="n">QApplication</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="n">QCheckBox</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>    <span class="n">QLabel</span><span class="p">,</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>    <span class="n">QMainWindow</span><span class="p">,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    <span class="n">QStatusBar</span><span class="p">,</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="n">QToolBar</span><span class="p">,</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;My App&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a>        <span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a>
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a>        <span class="c1"># The `Qt` namespace has a lot of attributes to customize</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24"></a>        <span class="c1"># widgets. See: http://doc.qt.io/qt-5/qt.html</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25"></a>        <span class="n">label</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26"></a>
+<a id="__codelineno-5-27" name="__codelineno-5-27"></a>        <span class="c1"># Set the central widget of the Window. Widget will expand</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28"></a>        <span class="c1"># to take up all the space in the window by default.</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30"></a>
+<a id="__codelineno-5-31" name="__codelineno-5-31"></a>        <span class="n">toolbar</span> <span class="o">=</span> <span class="n">QToolBar</span><span class="p">(</span><span class="s2">&quot;My main toolbar&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">setIconSize</span><span class="p">(</span><span class="n">QSize</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">addToolBar</span><span class="p">(</span><span class="n">toolbar</span><span class="p">)</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34"></a>
+<a id="__codelineno-5-35" name="__codelineno-5-35"></a>        <span class="n">icon_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;img/animal-penguin.png&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36"></a>
+<a id="__codelineno-5-37" name="__codelineno-5-37"></a>        <span class="n">button_action</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">icon_path</span><span class="p">),</span> <span class="s2">&quot;&amp;Your button&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<a id="__codelineno-5-38" name="__codelineno-5-38"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s2">&quot;This is your button&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-39" name="__codelineno-5-39"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onMyToolBarButtonClick</span><span class="p">)</span>
+<a id="__codelineno-5-40" name="__codelineno-5-40"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-5-41" name="__codelineno-5-41"></a>        <span class="c1"># You can enter keyboard shortcuts using key names (e.g. Ctrl+p)</span>
+<a id="__codelineno-5-42" name="__codelineno-5-42"></a>        <span class="c1"># Qt.namespace identifiers (e.g. Qt.CTRL + Qt.Key_P)</span>
+<a id="__codelineno-5-43" name="__codelineno-5-43"></a>        <span class="c1"># or system agnostic identifiers (e.g. QKeySequence.Print)</span>
+<a id="__codelineno-5-44" name="__codelineno-5-44"></a>        <span class="n">button_action</span><span class="o">.</span><span class="n">setShortcut</span><span class="p">(</span><span class="n">QKeySequence</span><span class="p">(</span><span class="s2">&quot;Ctrl+p&quot;</span><span class="p">))</span>
+<a id="__codelineno-5-45" name="__codelineno-5-45"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action</span><span class="p">)</span>
+<a id="__codelineno-5-46" name="__codelineno-5-46"></a>
+<a id="__codelineno-5-47" name="__codelineno-5-47"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addSeparator</span><span class="p">()</span>
+<a id="__codelineno-5-48" name="__codelineno-5-48"></a>
+<a id="__codelineno-5-49" name="__codelineno-5-49"></a>        <span class="n">button_action2</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">icon_path</span><span class="p">),</span> <span class="s2">&quot;Your &amp;button2&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<a id="__codelineno-5-50" name="__codelineno-5-50"></a>        <span class="n">button_action2</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s2">&quot;This is your button2&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-51" name="__codelineno-5-51"></a>        <span class="n">button_action2</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onMyToolBarButtonClick</span><span class="p">)</span>
+<a id="__codelineno-5-52" name="__codelineno-5-52"></a>        <span class="n">button_action2</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-5-53" name="__codelineno-5-53"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action2</span><span class="p">)</span>
+<a id="__codelineno-5-54" name="__codelineno-5-54"></a>
+<a id="__codelineno-5-55" name="__codelineno-5-55"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">))</span>
+<a id="__codelineno-5-56" name="__codelineno-5-56"></a>        <span class="n">toolbar</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">QCheckBox</span><span class="p">())</span>
+<a id="__codelineno-5-57" name="__codelineno-5-57"></a>
+<a id="__codelineno-5-58" name="__codelineno-5-58"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setStatusBar</span><span class="p">(</span><span class="n">QStatusBar</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+<a id="__codelineno-5-59" name="__codelineno-5-59"></a>
+<a id="__codelineno-5-60" name="__codelineno-5-60"></a>        <span class="n">menu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">menuBar</span><span class="p">()</span>
+<a id="__codelineno-5-61" name="__codelineno-5-61"></a>
+<a id="__codelineno-5-62" name="__codelineno-5-62"></a>        <span class="n">file_menu</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s2">&quot;&amp;File&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-63" name="__codelineno-5-63"></a>        <span class="n">file_menu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action</span><span class="p">)</span>
+<a id="__codelineno-5-64" name="__codelineno-5-64"></a>
+<a id="__codelineno-5-65" name="__codelineno-5-65"></a>        <span class="n">file_menu</span><span class="o">.</span><span class="n">addSeparator</span><span class="p">()</span>
+<a id="__codelineno-5-66" name="__codelineno-5-66"></a>
+<a id="__codelineno-5-67" name="__codelineno-5-67"></a>        <span class="n">file_submenu</span> <span class="o">=</span> <span class="n">file_menu</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s2">&quot;Submenu&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-68" name="__codelineno-5-68"></a>
+<a id="__codelineno-5-69" name="__codelineno-5-69"></a>        <span class="n">file_submenu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">button_action2</span><span class="p">)</span>
+<a id="__codelineno-5-70" name="__codelineno-5-70"></a>
+<a id="__codelineno-5-71" name="__codelineno-5-71"></a>    <span class="k">def</span> <span class="nf">onMyToolBarButtonClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<a id="__codelineno-5-72" name="__codelineno-5-72"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-5-73" name="__codelineno-5-73"></a>
+<a id="__codelineno-5-74" name="__codelineno-5-74"></a><span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<a id="__codelineno-5-75" name="__codelineno-5-75"></a>
+<a id="__codelineno-5-76" name="__codelineno-5-76"></a><span class="n">window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<a id="__codelineno-5-77" name="__codelineno-5-77"></a><span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-5-78" name="__codelineno-5-78"></a>
+<a id="__codelineno-5-79" name="__codelineno-5-79"></a><span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
                 
               
               
@@ -1070,13 +1513,13 @@ app.exec()
       
       
         
-        <a href="../pyside6-practica-calculadora/" class="md-footer__link md-footer__link--next" aria-label="Next: Pràctica 2" rel="next">
+        <a href="../pyside6-dialogs-alerts/" class="md-footer__link md-footer__link--next" aria-label="Next: Dialegs i alertes" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Pràctica 2
+              Dialegs i alertes
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1107,7 +1550,7 @@ app.exec()
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "search.suggest"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
       <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
