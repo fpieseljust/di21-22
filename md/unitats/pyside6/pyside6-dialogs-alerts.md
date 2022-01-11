@@ -231,3 +231,40 @@ També podeu modificar la icona que es mostra al diàleg configurant la icona am
         else:
             print("No!")
 ```
+
+## QMessageBox predissenyats
+
+Per fer les coses encara més senzilles, el QMessageBox té una sèrie de mètodes que es poden utilitzar per construir aquest tipus de diàleg de missatges. Aquests mètodes es mostren a continuació:
+
+```py
+QMessageBox.about(parent, title, message)
+QMessageBox.critical(parent, title, message)
+QMessageBox.information(parent, title, message)
+QMessageBox.question(parent, title, message)
+QMessageBox.warning(parent, title, message)
+```
+
+El paràmetre principal és la finestra de la qual el diàleg serà fill.
+
+Tingueu en compte que en lloc de cridar a exec() ara simplement cridem al mètode de diàleg i es crea el diàleg. El valor de retorn de cadascun dels mètodes és el botó que s'ha premut. Podem detectar el que s'ha premut comparant el valor de retorn amb les constants del botó.
+
+Els quatre mètodes d'informació, pregunta, advertència i crítics també accepten botons opcionals i arguments defaultButton que es poden utilitzar per modificar els botons que es mostren al diàleg i seleccionar-ne un de manera predeterminada. En general, però, no voleu canviar-ho del valor predeterminat.
+
+```py
+    def button_clicked(self, s):
+
+        button = QMessageBox.critical(
+            self,
+            "Oh dear!",
+            "Something went very wrong.",
+            buttons=QMessageBox.Discard | QMessageBox.NoToAll | QMessageBox.Ignore,
+            defaultButton=QMessageBox.Discard,
+        )
+
+        if button == QMessageBox.Discard:
+            print("Discard!")
+        elif button == QMessageBox.NoToAll:
+            print("No to all!")
+        else:
+            print("Ignore!")
+```
