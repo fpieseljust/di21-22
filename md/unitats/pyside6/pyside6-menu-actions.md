@@ -20,7 +20,7 @@ Al codi següent podeu veure aquesta primera QAction a una barra de ferramentes.
 
 ### Exemple
 
-```python
+```py
 import sys
 from PySide6.QtWidgets import (
     QMainWindow, QApplication,
@@ -62,15 +62,13 @@ window.show()
 app.exec()
 ```
 
-Baixa el codi [ací](../../resources/code/PySide6/Actions-Toolbars-Menus/menu1.py)
-
 ## Barra d'estat (*status bar*)
 
 En el següent exemple creem una barra d'estat i l'afegim a la finestra principal. En passar el ratolí per damunt el botó de la barra d'estat, es mostra el text definit a la barra d'estats.
 
 #### Exemple
 
-```python
+```py
 import sys
 import os
 
@@ -146,7 +144,7 @@ Per crear un menú, creem una barra de menús que anomenem **.menuBar()** a QMai
 
 Ací és on entra en joc el poder de les accions. Podem reutilitzar el QAction ja existent per afegir la mateixa funció al menú. Per afegir una acció, cridem a **.addAction()** passant en una de les nostres accions definides.
 
-```python
+```py
 import sys
 import os
 
@@ -217,7 +215,7 @@ app.exec()
 
 En este segon exemple, afegim algunes coses més al menú. Afegirem un separador al menú, que apareixerà com una línia horitzontal al menú, i després afegirem la segona QAction que hem creat.
 
-```python
+```py
 import sys
 import os
 
@@ -292,7 +290,7 @@ Per afegir un submenú, només cal que creeu un nou menú cridant a **addMenu()*
 
 ![Submenu](../../resources/img/PySide6/action/submenu.png)
 
-```python
+```py
 import sys
 import os
 
@@ -371,7 +369,7 @@ Les dreceres de teclat es poden definir de diverses maneres, ja sigui passant co
 
 #### Exemple
 
-```python
+```py
 import sys
 import os
 

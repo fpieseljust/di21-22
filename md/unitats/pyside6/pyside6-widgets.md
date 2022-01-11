@@ -10,7 +10,7 @@ Primer fem una ullada a alguns dels *widgets* PySide més comuns. El codi següe
 
     Veurem com funcionen els *layouts* a més endavant.
 
-```python
+```py
 import sys
 
 from PySide6.QtCore import Qt
@@ -83,15 +83,13 @@ window.show()
 app.exec()
 ```
 
-Podeu baixar el codi [ací](../../resources/code/PySide6/Widgets/widgets1.py)
-
 ### Principals Widgets
 
 PySide6 té disponible multitud de widgets i cadascun d'ells s'utilitza de forma semblant, amb algunes peculiaritats segons el seu tipus. Veurem ara alguns exemples de cadascun dels principals Widgets:
 
 #### Label
 
-```python
+```py
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QFont, QPixmap
 from PySide6.QtWidgets import QApplication, QLabel, QMainWindow
@@ -121,11 +119,9 @@ main_window.show()
 app.exec()
 ```
 
-Pots baixar el codi [ací](../../resources/code/PySide6/Widgets/label.py)
-
 #### CheckBox
 
-```python
+```py
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication, QMainWindow, QCheckBox
 
@@ -159,11 +155,9 @@ window.show()
 app.exec()
 ```
 
-Pots baixar el codi [ací](../../resources/code/PySide6/Widgets/checkbox.py)
-
 #### ComboBox
 
-```python
+```py
 from PySide6.QtCore import Qt, QSize
 from PySide6.QtWidgets import QApplication, QMainWindow, QComboBox, QWidget
 
@@ -202,11 +196,9 @@ window.show()
 app.exec()
 ```
 
-Pots baixar el codi [ací](../../resources/code/PySide6/Widgets/comboBox.py)
-
 #### ListWidget
 
-```python
+```py
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication, QMainWindow, QListWidget
 
@@ -240,11 +232,9 @@ window.show()
 app.exec()
 ```
 
-Pots baixar el codi [ací](../../resources/code/PySide6/Widgets/listwidget.py)
-
 #### LineEdit
 
-```python
+```py
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication, QMainWindow, QLineEdit, QWidget
 
@@ -295,11 +285,9 @@ window.show()
 app.exec()
 ```
 
-Pots baixar el codi [ací](../../resources/code/PySide6/Widgets/lineedit.py)
-
 #### SpinBox
 
-```python
+```py
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication, QMainWindow, QSpinBox
 
@@ -337,11 +325,9 @@ window.show()
 app.exec()
 ```
 
-Pots baixar el codi [ací](../../resources/code/PySide6/Widgets/spinbox.py)
-
 #### Slider
 
-```python
+```py
 from PySide6.QtWidgets import QApplication, QLabel, QMainWindow, QSlider, QWidget
 
 class MainWindow(QMainWindow):
@@ -390,11 +376,9 @@ window.show()
 app.exec()
 ```
 
-Pots baixar el codi [ací](../../resources/code/PySide6/Widgets/slider.py)
-
 #### Dial
 
-```python
+```py
 from PySide6.QtWidgets import QApplication, QLabel, QMainWindow, QDial, QVBoxLayout, QWidget
 
 class MainWindow(QMainWindow):
@@ -441,8 +425,6 @@ window.show()
 
 app.exec()
 ```
-
-Pots baixar el codi [ací](../../resources/code/PySide6/Widgets/dial.py)
 
 #### Activitat 6
 

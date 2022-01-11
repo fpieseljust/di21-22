@@ -18,7 +18,7 @@ Com podeu veure, hi ha tres dissenys posicionals disponibles a Qt. El VBoxLayout
 
 Per facilitar la visualització dels dissenys, primer crearem un *widget* personalitzat senzill que mostre un color sòlid que triem. Això ajudarà a distingir els *widgets* que afegim al disseny.
 
-```python
+```py
 from PySide6.QtGui import QPalette, QColor 
 from PySide6.QtWidgets import QWidget
 
@@ -47,7 +47,7 @@ El layout vertical va afegint els widgets un damunt de l'altre. Si afegim un nou
 
 ![VBoxLayout](../../resources/img/PySide6/layouts/vboxlayout.png)
 
-```python
+```py
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout
 
@@ -85,7 +85,7 @@ El *layout* horitzontal va afegint els components un al costat de l'altre. Si af
 
 ![QHBoxLayout](../../resources/img/PySide6/layouts/hboxlayout.png)
 
-```python
+```py
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QHBoxLayout
 
@@ -122,7 +122,7 @@ app.exec()
 
 Per a dissenys més complexos, podem niuar els dissenys els uns dintre dels altres mitjançant `.addLayout` en un disseny. A continuació, afegim un *QVBoxLayout* al *QHBoxLayout* principal. Si afegim alguns *widgets* al *QVBoxLayout*, estaran disposats verticalment a la primera ranura del disseny principal.
 
-```python
+```py
 import sys
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QHBoxLayout, QVBoxLayout
@@ -181,7 +181,7 @@ QGridLayout us permet posicionar elements específicament en una quadrícula. Es
 
 ![QGridLayout amb buits](../../resources/img/PySide6/layouts/gridlayout2.png)
 
-```python
+```py
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QGridLayout
 
@@ -225,7 +225,7 @@ El disseny final que tractarem és el QStackedLayout. Tal com es descriu, aquest
 
 A continuació es mostra una breu demostració amb *QStackedLayout* en combinació amb *QButton* per proporcionar una interfície semblant a una pestanya a una aplicació:
 
-```python
+```py
 import sys
 
 from PySide6.QtCore import Qt
@@ -301,7 +301,7 @@ El resultat és la següent aplicació:
 
 Qt en realitat proporciona un TabWidget que proporciona aquest tipus de disseny en forma de widget. Vegeu el següent exemple amb QTabWidget:
 
-```python
+```py
 import sys
 
 from PySide6.QtCore import Qt

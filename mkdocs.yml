@@ -11,7 +11,21 @@ nav:
         - Widgets: unitats/pyside6/pyside6-widgets.md
         - Layouts: unitats/pyside6/pyside6-layouts.md
         - Menús, barres de ferramentes i barres d'estat: 'unitats/pyside6/pyside6-menu-actions.md'
+        - Dialegs i alertes: 'unitats/pyside6/pyside6-dialogs-alerts.md'
+    - Pràctiques i treballs:
+      - PySide6:
         - Pràctica 2: unitats/pyside6/pyside6-practica-calculadora.md
     - About: about.md
 theme:
   name: material
+  features:
+    - content.code.annotate
+    - search.suggest
+markdown_extensions:
+  - pymdownx.highlight:
+      linenums: true
+      anchor_linenums: true
+      auto_title: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

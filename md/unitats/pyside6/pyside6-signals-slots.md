@@ -40,8 +40,6 @@ if __name__ == "__main__":
     app.exec()
 ```
 
-Pots baixar el codi [ací](../../resources/code/PySide6/Signals-Slots/signals_slots1.py)
-
 > En l'anterior codi, a més de connectar la senyal a l'slot, hem utilitzat les funcions resize i move per a assignar el tamany i situar un component.  
 > Consulta la documentació per obtindre [més informació sobre les senyals de QPushButton](https://doc.qt.io/qt-6/qpushbutton.html).
 
@@ -105,8 +103,6 @@ window.show()
 app.exec()
 ```
 
-Pots baixar el codi [ací](../../resources/code/PySide6/Signals-Slots/signals_slots2.py)
-
 Treballant amb senyals i ranures hem de tindre en compte:
 - Un únic senyal pot estar connectat a diverses ranures -> Clic desencadena l'execució de *the_button_was_toggled* i *the_button_was_clicked*.
 - Les ranures poden rebre arguments -> La ranura *the_window_title_changed* rep *window_title* com a argument.
@@ -148,8 +144,6 @@ window.show()
 
 app.exec()
 ```
-
-Pots baixar el codi [ací](../../resources/code/PySide6/Signals-Slots/signals_slots3.py)
 
 Quan canviem el text del *LineEdit*, el senyal *textChanged* envia el text a la ranura a la qual està connectada, en aquest cas és la funció *setText* del *Label*, canviant així el seu text.
 
@@ -195,8 +189,6 @@ window.show()
 app.exec()
 ```
 
-Podeu baixar el codi [ací](../../resources/code/PySide6/Signals-Slots/custom_signals.py)
-
 Com podeu observar, utilitzem el mètode *emit* per a llançar el senyal, que és capaç de transmetre informació de qualsevol tipus, però no és una bona idea que les ranures reben qualsevol tipus, ja que s'hauria de gestionar a la funció, cosa que la complicaria molt.
 
 > Pots crear senyals en qualsevol subclasse de *QObject*, inclòs components, finestres i dialegs.
@@ -231,8 +223,6 @@ window = MainWindow()
 window.show()
 app.exec()
 ```
-
-Pots baixar el codi [ací](../../resources/code/PySide6/Signals-Slots/custom_signals2.py)
 
 En aquest cas, el senyal *clicked* emetrà l'estat de *checked*. La funció lambda intercepta el senyal i afegeix la informació de l'objecte *btn*.
 
@@ -296,8 +286,6 @@ window.show()
 
 app.exec()
 ```
-
-Pots baixar el codi [ací](../../resources/code/PySide6/Signals-Slots/events.py)
 
 > Observeu que els esdeveniments de moviment del ratolí només es registren quan teniu el botó premut. Podeu canviar-ho afegint un atribut al widget central i cridant ade la finestra.  
 > 
