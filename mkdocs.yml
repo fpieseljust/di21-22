@@ -12,6 +12,7 @@ nav:
         - Layouts: unitats/pyside6/pyside6-layouts.md
         - Menús, barres de ferramentes i barres d'estat: 'unitats/pyside6/pyside6-menu-actions.md'
         - Dialegs i alertes: 'unitats/pyside6/pyside6-dialogs-alerts.md'
+        - Finestres: 'unitats/pyside6/windows.md'
     - Pràctiques i treballs:
       - PySide6:
         - Pràctica 2: unitats/pyside6/pyside6-practica-calculadora.md
