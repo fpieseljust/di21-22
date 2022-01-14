@@ -145,7 +145,7 @@ window.show()
 app.exec()
 ```
 
-![CustomDialog](../../resources/img/PySide6/dialogs/dialog2a.png)
+![CustomDialog](../../../resources/img/PySide6/dialogs/dialog2a.png)
 
 ## Diàlegs amb missatges simples (QMessageBox)
 

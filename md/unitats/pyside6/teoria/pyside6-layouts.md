@@ -45,7 +45,7 @@ En aquest codi subclassem QWidget per crear el nostre propi widget personalitzat
 
 El layout vertical va afegint els widgets un damunt de l'altre. Si afegim un nou *widget* l'afegirà a la part de baix.
 
-![VBoxLayout](../../resources/img/PySide6/layouts/vboxlayout.png)
+![VBoxLayout](../../../resources/img/PySide6/layouts/vboxlayout.png)
 
 ```py
 import sys
@@ -83,7 +83,7 @@ app.exec()
 
 El *layout* horitzontal va afegint els components un al costat de l'altre. Si afegim un nou component, l'afegirà a l'esquerra.
 
-![QHBoxLayout](../../resources/img/PySide6/layouts/hboxlayout.png)
+![QHBoxLayout](../../../resources/img/PySide6/layouts/hboxlayout.png)
 
 ```py
 import sys
@@ -175,11 +175,11 @@ app.exec()
 
 Per molt útils que siguen, si proveu d'utilitzar `QVBoxLayout` i `QHBoxLayout` per dissenyar diversos elements, per exemple a un formulari, us serà molt difícil assegurar-vos que els components de mida diferent s'alinein. La solució a això és `QGridLayout`.
 
-![QGridLayout](../../resources/img/PySide6/layouts/gridlayout1.png)
+![QGridLayout](../../../resources/img/PySide6/layouts/gridlayout1.png)
 
 QGridLayout us permet posicionar elements específicament en una quadrícula. Especifiqueu les posicions de fila i columna per a cada component. Podeu ometre elements i es deixaran buits.
 
-![QGridLayout amb buits](../../resources/img/PySide6/layouts/gridlayout2.png)
+![QGridLayout amb buits](../../../resources/img/PySide6/layouts/gridlayout2.png)
 
 ```py
 import sys
@@ -213,13 +213,13 @@ window.show()
 app.exec()
 ```
 
-![gridlayout3](../../resources/img/PySide6/layouts/gridlayout3.png)
+![gridlayout3](../../../resources/img/PySide6/layouts/gridlayout3.png)
 
 ## QStackedLayout
 
 El disseny final que tractarem és el QStackedLayout. Tal com es descriu, aquest disseny us permet col·locar elements directament els uns damunt dels altres (apilats). A continuació, podeu seleccionar quin disseny voleu mostrar. Podeu utilitzar-lo per dibuixar capes en una aplicació gràfica o per imitar una interfície semblant a una pestanya. Tingueu en compte que també hi ha `QStackedWidget`, que és un component de contenidor que funciona exactament de la mateixa manera. Això és útil si voleu afegir una pila de components directament a un *QMainWindow* amb *setCentralWidget*.
 
-![QStackedLayout](../../resources/img/PySide6/layouts/qstackedlayout1.png)
+![QStackedLayout](../../../resources/img/PySide6/layouts/qstackedlayout1.png)
 
 *QStackedWidget* és exactament com funcionen les vistes amb pestanyes a les aplicacions. Només una pestanya és visible alhora. Podeu controlar quin components mostrar en qualsevol moment utilitzant `.setCurrentIndex()` o `.setCurrentWidget()` per establir l'element mitjançant l'índex o per la referència al propi component.
 
@@ -295,7 +295,7 @@ app.exec()
 
 El resultat és la següent aplicació:
 
-![Exemple QStackedLayout](../../resources/img/PySide6/exemple_stacked_layout.png)
+![Exemple QStackedLayout](../../../resources/img/PySide6/exemple_stacked_layout.png)
 
 ### QTabWidget
 
@@ -341,8 +341,8 @@ window.show()
 app.exec()
 ```
 
-![TabWidget](../../resources/img/PySide6/layouts/layout9.png)
+![TabWidget](../../../resources/img/PySide6/layouts/layout9.png)
 
 Com podeu veure, és una mica més senzill i una mica més atractiu! Podeu establir la posició de les pestanyes mitjançant les direccions cardinals, canviar si les pestanyes es poden moure amb `.setMoveable`. Notareu que la barra de pestanyes de macOS té un aspecte molt diferent de les altres; de manera predeterminada, les pestanyes de macOS adopten un estil de pastilla o bombolla. A macOS, normalment s'utilitza per als panells de configuració amb pestanyes. Per als documents, podeu activar el mode de document per oferir pestanyes esveltes semblants a les que veieu a altres plataformes. Aquesta opció no té cap efecte en altres plataformes.
 
-![TabWidget macOS](../../resources/img/PySide6/layouts/layout9-mac-document.png)
+![TabWidget macOS](../../../resources/img/PySide6/layouts/layout9-mac-document.png)

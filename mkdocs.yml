@@ -6,16 +6,17 @@ nav:
     - Home: index.md
     - Unitats:
       - Unitat 2 - Introducció a PySide6:
-        - Introducció: unitats/pyside6/pyside6-intro.md
-        - Signals - Slots: unitats/pyside6/pyside6-signals-slots.md
-        - Widgets: unitats/pyside6/pyside6-widgets.md
-        - Layouts: unitats/pyside6/pyside6-layouts.md
-        - Menús, barres de ferramentes i barres d'estat: 'unitats/pyside6/pyside6-menu-actions.md'
-        - Dialegs i alertes: 'unitats/pyside6/pyside6-dialogs-alerts.md'
-        - Finestres: 'unitats/pyside6/windows.md'
+        - Introducció: unitats/pyside6/teoria/pyside6-intro.md
+        - Signals - Slots: unitats/pyside6/teoria/pyside6-signals-slots.md
+        - Widgets: unitats/pyside6/teoria/pyside6-widgets.md
+        - Layouts: unitats/pyside6/teoria/pyside6-layouts.md
+        - Menús, barres de ferramentes i barres d'estat: unitats/pyside6/teoria/pyside6-menu-actions.md
+        - Dialegs i alertes: unitats/pyside6/teoria/pyside6-dialogs-alerts.md
+        - Finestres: unitats/pyside6/teoria/windows.md
     - Pràctiques i treballs:
       - PySide6:
-        - Pràctica 2: unitats/pyside6/pyside6-practica-calculadora.md
+        - Pràctica calculadora: unitats/pyside6/practiques/pyside6-practica-calculadora.md
+        - Pràctica login: unitats/pyside6/practiques/login.md
     - About: about.md
 theme:
   name: material

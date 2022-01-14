@@ -6,7 +6,7 @@ A continuació, veurem alguns dels elements comuns de la interfície d'usuari, q
 
 Un dels elements de la interfície d'usuari més comuna és la barra de ferramentes. Són barres d'icones i/o text que s'utilitzen per realitzar tasques habituals dins d'una aplicació, per a les quals l'accés mitjançant un menú seria complicat. Són una de les funcions d'interfície d'usuari més comunes que es veuen en moltes aplicacions. Tot i que algunes aplicacions complexes, especialment a la suite de Microsoft Office, han migrat a interfícies de "menú" contextuals, la barra d'eines estàndard sol ser suficient per a la majoria d'aplicacions que creareu.
 
-![Barra de ferramentes](../../resources/img/PySide6/action/toolbar.png)
+![Barra de ferramentes](../../../resources/img/PySide6/action/toolbar.png)
 
 > Normalment es proporciona una interfície alternativa als menús per activar i desactivar les barres d'eines.
 
@@ -288,7 +288,7 @@ També podeu fer servir un *ampersand* per afegir **tecles d'acceleració** al m
 
 Per afegir un submenú, només cal que creeu un nou menú cridant a **addMenu()** al menú principal. A continuació, podeu afegir accions amb normalitat. 
 
-![Submenu](../../resources/img/PySide6/action/submenu.png)
+![Submenu](../../../resources/img/PySide6/action/submenu.png)
 
 ```py
 import sys

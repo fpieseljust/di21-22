@@ -1,4 +1,4 @@
-![Logo Python + Qt](../../resources/img/PySide6/1200px-Python_and_Qt.svg.png)
+![Logo Python + Qt](../../../resources/img/PySide6/1200px-Python_and_Qt.svg.png)
 
 ## Qt i PySide
 
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 > 
 >  `sudo apt install libopengl0 -y`
 
-Baixeu el codi [d'ací](../../resources/code/PySide6/Intro/hello.py)
+Baixeu el codi [d'ací](../../../resources/code/PySide6/Intro/hello.py)
 
 ### Què és una finestra?
 
@@ -123,7 +123,7 @@ Anem a crear la nostra primera aplicació.
 4. Afig el botó a la part central de la finestra amb setCentralWidget(«component»).
 5. Recorda mostrar la finestra i iniciar el bucle d’esdeveniments.
 
-![activitat1](../../resources/img/PySide6/activitat1.png)
+![activitat1](../../../resources/img/PySide6/activitat1.png)
 
 #### Activitat 2
 Modifica el codi de l’anterior activitat per a que es puga passar per línia de comandaments el títol i el text del botó.
@@ -131,7 +131,7 @@ Modifica el codi de l’anterior activitat per a que es puga passar per línia d
 ```py
 python3 activitat2.2.py "APP" "Text"
 ```
-![activitat2](../../resources/img/PySide6/activitat2.png)
+![activitat2](../../../resources/img/PySide6/activitat2.png)
 
 ## Assignem tamany a les finestres i els components
 
@@ -168,7 +168,7 @@ window = MainWindow()
 app.exec()
 
 ```
-Baixa el codi punxant el següent [enllaç](../../resources/code/PySide6/Intro/main_window.py)
+Baixa el codi punxant el següent [enllaç](../../../resources/code/PySide6/Intro/main_window.py)
 
 #### Activitat 3 (entregable)
 

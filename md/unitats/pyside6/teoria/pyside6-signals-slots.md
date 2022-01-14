@@ -55,9 +55,9 @@ Fes una aplicació amb tres botons. Inicialment, l'aplicació ocuparà el tamany
 - El tamany mínim mai podrà ser inferior a la suma dels tamanys de botó.
 - El *title* de l'aplicació mostrarà en cada moment en quin estat es troba *Normalitzat, Maximitzat o Minimitzat* 
 
-![normal](../../resources/img/PySide6/a3-normal.png)
+![normal](../../../resources/img/PySide6/a3-normal.png)
 
-![min](../../resources/img/PySide6/a3-min.png)
+![min](../../../resources/img/PySide6/a3-min.png)
 
 ## Encadenaments de senyals
 
