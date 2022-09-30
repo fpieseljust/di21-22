@@ -72,6 +72,7 @@ class MainWindow(QMainWindow):
         print("click", s)
                 
 app = QApplication(sys.argv)
+app.setAttribute(Qt.AA_DontShowIconsInMenus)
 
 window = MainWindow()
 window.show()
